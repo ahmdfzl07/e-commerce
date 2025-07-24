@@ -1,0 +1,126 @@
+@extends('layouts.layout')
+
+@section('title')
+    Home
+@endsection
+
+@section('index')
+    active
+@endsection
+
+@section('main')
+    <main class="site-main">
+
+        <!--================ Hero banner start =================-->
+        <section class="hero-banner">
+            <div class="container">
+                <div class="row no-gutters align-items-center pt-60px">
+                    <div class="col-5 d-none d-sm-block">
+                        <div class="hero-banner__img">
+                            <img class="img-fluid" src="{{ asset('dist/img/logo.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
+                        <div class="hero-banner__content">
+                            <h4>Belanja itu menyenangkan</h4>
+                            <h1>Jelajahi Produk Premium Kami</h1>
+                            <p>Kami yang lebih dari tanda-tanda membagi kekuasaan dalam kedalaman tanpa mengisi membawa mereka daging berada di atas bumi sendiri tanpa pagi di atas ketiga. Jantan mereka kering. Mereka adalah besar muncul siapa tanah terbang rumput..</p>
+                            <a class="button button-hero" href=" {{ route('home.product') }} ">Belanja Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================ Hero banner start =================-->
+
+        <!--================ Hero Carousel start =================-->
+        <section class="section-margin mt-0">
+            <div class="owl-carousel owl-theme hero-carousel">
+                <div class="hero-carousel__slide">
+                    <img src="img/home/hero-slide1.png" alt="" class="img-fluid">
+                    <a href="#" class="hero-carousel__slideOverlay">
+                        <h3>Wireless Headphone</h3>
+                        <p>Accessories Item</p>
+                    </a>
+                </div>
+                <div class="hero-carousel__slide">
+                    <img src="img/home/hero-slide2.png" alt="" class="img-fluid">
+                    <a href="#" class="hero-carousel__slideOverlay">
+                        <h3>Wireless Headphone</h3>
+                        <p>Accessories Item</p>
+                    </a>
+                </div>
+                <div class="hero-carousel__slide">
+                    <img src="img/home/hero-slide3.png" alt="" class="img-fluid">
+                    <a href="#" class="hero-carousel__slideOverlay">
+                        <h3>Wireless Headphone</h3>
+                        <p>Accessories Item</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!--================ Hero Carousel end =================-->
+
+        <!-- ================ trending product section start ================= -->
+        <section class="section-margin calc-60px">
+            <div class="container">
+                <div class="section-intro pb-60px">
+                    <p>Tampil trendi dengan produk terbaru kami.</p>
+                    <h2>Produk <span class="section-intro__style">Terbaru</span></h2>
+                </div>
+                <div class="row">
+
+                    @foreach ($products as $row)
+                        <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
+                            <div class="card text-center card-product shadow" style="height: 100%; width: 100%;">
+                                <div class="card-product__img">
+                                    <img class="card-img" src="{{ asset('products/' . $row->image) }}"
+                                        alt="{{ $row->name }}" style="max-height: 100%; width: 100%;">
+                                    <ul class="card-product__imgOverlay">
+                                        <li><a href="{{ url('/product/' . $row->slug) }}"><button><i
+                                                        class="ti-shopping-cart"></i></button></a></li>
+                                        {{-- <li><button><i class="ti-heart"></i></button></li> --}}
+                                    </ul>
+                                </div>
+                                <!-- <div class="card-body">
+                                    <p>{{ $row->category->name }}</p>
+                                    <h4 class="card-product__title"><a
+                                            href="{{ url('/costumer/product/' . $row->slug) }}">{{ $row->name }}</a></h4>
+                                    @if ($row->stock == 0)
+                                        <p class="text-danger">Habis</p>
+                                    @endif
+                                    @if ($row->price_discount == 0)
+                                        <p class="card-product__price">Rp. {{ number_format($row->price, 2, ',', '.') }}
+                                        </p>
+                                    @else
+                                        <p style="text-decoration: line-through; color:red;" class="card-product__price">Rp.
+                                            {{ number_format($row->price, 2, ',', '.') }}</p>
+                                        <p class="card-product__price">Rp.
+                                            {{ number_format($row->price_discount, 2, ',', '.') }}</p>
+                                    @endif
+                                </div> -->
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
+            </div>
+        </section>
+        <!-- ================ trending product section end ================= -->
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@latest"></script>
+    <script>
+        // Jika terdapat pesan sukses
+        @if (session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'success',
+                text: '{{ session('success') }}',
+                showConfirmButton: false,
+                timer: 3500 // Tampilkan selama 1.5 detik, sesuaikan dengan kebutuhan Anda
+            });
+        @endif
+    </script>
+@endsection
