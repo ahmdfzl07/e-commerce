@@ -109,7 +109,7 @@ class LaporanController extends Controller
             ->whereBetween('created_at', [$start, $end])
             ->get();
 
-        $pdf = PDF::loadView('order.order_pdf', compact('orders', 'range'));
+        // $pdf = PDF::loadView('order.order_pdf', compact('orders', 'range'));
         return $pdf->stream('laporan-order.pdf');
     }
 
