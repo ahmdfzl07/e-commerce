@@ -38,55 +38,108 @@
                 </div>
             </div>
 
-            <div class="col-lg-7 p-5">
-                <h3 class="text-center mb-4" style="font-weight: bold; color: #2c3e50;">Buat Akun Baru</h3>
-                <form method="POST" action="{{ route('costumer.register.post') }}">
-                    @csrf
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <input type="email" name="email" class="form-control" placeholder="Email" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <input type="password" name="password" class="form-control" placeholder="Password" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <input type="password" name="password_confirmation" class="form-control" placeholder="Konfirmasi Password" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <input type="text" name="phone_number" class="form-control" placeholder="Nomor Telepon" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <input type="text" name="address" class="form-control" placeholder="Alamat Lengkap" required>
-                        </div>
-
-                        <div class="col-md-4 mb-3">
-                            <select class="form-control" name="province_id" required>
-                                <option value="">Pilih Provinsi</option>
-                                @foreach ($provinces as $row)
-                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <select class="form-control" name="citie_id" required>
-                                <option value="">Pilih Kota</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <select class="form-control" name="district_id" required>
-                                <option value="">Pilih Kecamatan</option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-12 mt-4">
-                            <button type="submit" class="btn w-100" style="background-color: #e74c3c; color: white; font-weight: bold;">Daftar Sekarang</button>
-                        </div>
-                    </div>
-                </form>
+          <div class="col-lg-7 p-5">
+    <h3 class="text-center mb-4" style="font-weight: bold; color: #2c3e50;">Buat Akun Baru</h3>
+    <form method="POST" action="{{ route('costumer.register.post') }}">
+        @csrf
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" required>
             </div>
+            <div class="col-md-6 mb-3">
+                <input type="email" name="email" class="form-control" placeholder="Email" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <input type="password" name="password_confirmation" class="form-control" placeholder="Konfirmasi Password" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <input type="text" name="phone_number" class="form-control" placeholder="Nomor Telepon" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <input type="text" name="address" class="form-control" placeholder="Alamat Lengkap" required>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                  <label for="">Propinsi</label>
+                 <select class="form-control" id="province_id" name="province_id" required>
+                     <option value="">Pilih Propinsi</option>
+                     @foreach ($provinces as $row)
+                         <option value="{{ $row->id }}">{{ $row->name }}</option>
+                     @endforeach
+                 </select>
+                 <p class="text-danger">{{ $errors->first('province_id') }}</p>
+            </div>
+            <div class="col-md-4 mb-3">
+               <label for="">Kabupaten / Kota</label>
+                 <select class="form-control" name="citie_id" id="city_id" required>
+                     <option value="">Pilih Kabupaten/Kota</option>
+                 </select>
+                 <p class="text-danger">{{ $errors->first('city_id') }}</p>
+            </div>
+            <div class="col-md-4 mb-3">
+               <label for="">Kecamatan</label>
+                  <select class="form-control" name="district_id" id="district_id" required>
+                      <option value="">Pilih Kecamatan</option>
+                  </select>
+                  <p class="text-danger">{{ $errors->first('district_id') }}</p>
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <button type="submit" class="btn w-100" style="background-color: #e74c3c; color: white; font-weight: bold;">Daftar Sekarang</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{{-- Tambahkan ini sebelum </body> atau di bawah halaman --}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    $('select[name="province_id"]').on('change', function () {
+        var provinceId = $(this).val();
+        if (provinceId) {
+            $.ajax({
+                url: '/get-cities/' + provinceId,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $('select[name="city_id"]').empty().append('<option value="">Pilih Kota</option>');
+                    $('select[name="district_id"]').empty().append('<option value="">Pilih Kecamatan</option>');
+                    $.each(data, function (key, value) {
+                        $('select[name="city_id"]').append('<option value="' + value.id + '">' + value.name + '</option>');
+                    });
+                }
+            });
+        } else {
+            $('select[name="city_id"]').empty().append('<option value="">Pilih Kota</option>');
+            $('select[name="district_id"]').empty().append('<option value="">Pilih Kecamatan</option>');
+        }
+    });
+
+    $('select[name="city_id"]').on('change', function () {
+        var cityId = $(this).val();
+        if (cityId) {
+            $.ajax({
+                url: '/get-districts/' + cityId,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $('select[name="district_id"]').empty().append('<option value="">Pilih Kecamatan</option>');
+                    $.each(data, function (key, value) {
+                        $('select[name="district_id"]').append('<option value="' + value.id + '">' + value.name + '</option>');
+                    });
+                }
+            });
+        } else {
+            $('select[name="district_id"]').empty().append('<option value="">Pilih Kecamatan</option>');
+        }
+    });
+});
+</script>
+
         </div>
     </div>
 </section>
