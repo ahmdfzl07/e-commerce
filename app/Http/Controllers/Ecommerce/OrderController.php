@@ -142,31 +142,38 @@ class OrderController extends Controller
         return view('costumer.payment', compact('order'));
     }
 
-    public function payment(Request $request){
+public function payment(Request $request)
+{
+    DB::beginTransaction();
 
-        $order = Order::where('invoice', $request->invoice)->first();
-        if ($request->hasFile('proof')) {
-            $file = $request->file('proof');
-            $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('payment'), $filename);
-        }
-            Payment::create([
-                'order_id' => $request->order_id,
-                'name' => $request->name,
-                'transfer_to' => $request->transfer_to,
-                'transfer_date' => Carbon::parse($request->transfer_date)->format('Y-m-d'),
-                'amount' => $request->amount,
-                'proof' => $filename,
-                'status' => false
-            ]);
+    $order = Order::where('invoice', $request->invoice)->first();
 
-            $order->update(['status' => 1]);
-            DB::commit();
-
-        session()->flash('success', "Upload bukti pembayaran berhasil. Silahkan tunggu konfirmasi dari admin!");
-        return redirect(route('home.orderdetail'));
-
+    if ($request->hasFile('proof')) {
+        $file = $request->file('proof');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('payment'), $filename);
+    } else {
+        $filename = null;
     }
+
+    Payment::create([
+        'order_id' => $order->id, // Gunakan dari data order
+        'name' => $request->name,
+        'transfer_to' => $request->transfer_to,
+        'transfer_date' => Carbon::parse($request->transfer_date)->format('Y-m-d'),
+        'amount' => $order->total, // Otomatis dari order
+        'proof' => $filename,
+        'status' => false
+    ]);
+
+    $order->update(['status' => 1]);
+
+    DB::commit();
+
+    session()->flash('success', "Upload bukti pembayaran berhasil. Silahkan tunggu konfirmasi dari admin!");
+    return redirect(route('home.orderdetail'));
+}
+
 
     public function update(Request $request){
         $orders = Order::where('id', $request->id)->update([
