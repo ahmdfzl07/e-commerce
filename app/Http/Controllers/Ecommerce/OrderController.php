@@ -9,6 +9,7 @@ use App\Models\Citie;
 use App\Models\OrderDetail;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Cart;
+use Illuminate\Support\Str;
 use Kavist\RajaOngkir\Facades\RajaOngkir;
 use App\Models\Product;
 use App\Models\Payment;
@@ -70,47 +71,52 @@ class OrderController extends Controller
         return view('costumer.checkout', compact('cart', 'subtotal'));
     }
 
-    public function processCheckout(Request $request)
-    {
-        $cart = Cart::where('customer_id', Auth::guard('costumer')->user()->id)->get();
+   public function processCheckout(Request $request)
+{
+    $cart = Cart::where('customer_id', Auth::guard('costumer')->user()->id)->get();
 
-        $order = Order::create([
-            'invoice'           => $request->invoice,
-            'customer_id'       => $request->customer_id,
-            'customer_name'     => $request->customer_name,
-            'customer_phone'    => $request->customer_phone,
-            'customer_address'  => $request->customer_address,
-            'district_id'       => $request->district_id,
-            'citie_id'          => $request->citie_id,
-            'subtotal'          => $request->subtotal,
-            'cost'              => $request->cost ?? 0,
-            'shipping'          => $request->shipping,
-            'status'            => $request->status
+    // Buat invoice unik
+    do {
+        $invoice = strtoupper(Str::random(4)) . '-' . time();
+    } while (Order::where('invoice', $invoice)->exists());
+
+    $order = Order::create([
+        'invoice'           => $invoice,
+        'customer_id'       => $request->customer_id,
+        'customer_name'     => $request->customer_name,
+        'customer_phone'    => $request->customer_phone,
+        'customer_address'  => $request->customer_address,
+        'district_id'       => $request->district_id,
+        'citie_id'          => $request->citie_id,
+        'subtotal'          => $request->subtotal,
+        'cost'              => $request->cost ?? 0,
+        'shipping'          => $request->shipping,
+        'status'            => $request->status
+    ]);
+
+    foreach ($cart as $row) {
+        OrderDetail::create([
+            'order_id' => $order->id,
+            'product_id' => $row['product_id'],
+            'price' => $row['cart_price'],
+            'qty' => $row['qty'],
         ]);
-
-        foreach ($cart as $row) {
-            OrderDetail::create([
-                'order_id' => $order->id,
-                'product_id' => $row['product_id'],
-                'price' => $row['cart_price'],
-                'qty' => $row['qty'],
-            ]);
-        }
-
-        foreach ($cart as $row){
-            $product = Product::find($row['product_id']);
-            $product->update([
-                'stock' => $product['stock'] - $row['qty'],
-            ]);
-        }
-
-        foreach ($cart as $row){
-            $cart = Cart::find($row['id']);
-            $cart->delete();
-        }
-
-        return redirect('/costumer/order/'.$order->invoice);
     }
+
+    foreach ($cart as $row){
+        $product = Product::find($row['product_id']);
+        $product->update([
+            'stock' => $product['stock'] - $row['qty'],
+        ]);
+    }
+
+    foreach ($cart as $row){
+        Cart::find($row['id'])->delete();
+    }
+
+    return redirect('/costumer/order/'.$order->invoice);
+}
+
 
     public function generatepdf($id)
     {
@@ -167,7 +173,7 @@ class OrderController extends Controller
             'status' => $request['status']
             ]);
 
-        session()->flash('success', "Pesanan anda sudah selesai. Terimakasih Sudah berbelanja di SEBELAH GUDANG ");
+        session()->flash('success', "Pesanan anda sudah selesai. Terimakasih Sudah berbelanja di H. ILI MOTOR ");
         return redirect(route('home.orderdetail'));
     }
 }

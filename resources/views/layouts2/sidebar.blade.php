@@ -166,7 +166,7 @@
             <a href="/dashboard" class="brand-link">
                 <img src="template-admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">SEBELAH GUDANG</span>
+                <span class="brand-text font-weight-light">H. ILI MOTOR</span>
             </a>
 
             <!-- Sidebar -->
@@ -252,7 +252,7 @@
         @yield('content')
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2023 <a href="#">SEBELAH GUDANG</a>.</strong>
+            <strong>Copyright &copy; 2023 <a href="#">H. ILI MOTOR</a>.</strong>
             All rights reserved.
         </footer>
 

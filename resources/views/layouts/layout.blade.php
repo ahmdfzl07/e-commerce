@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>SEBELAH GUDANG - @yield('title')</title>
+    <title>H. ILI MOTOR - @yield('title')</title>
     {{-- <link rel="icon" href="img/Fevicon.png" type="image/png"> --}}
     <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/css/all.min.css') }}">
@@ -129,7 +129,7 @@
                         <div class="single-footer-widget tp_widgets">
                             <h4 class="footer_title large_title">Lokasi</h4>
                             <iframe style="width: 100%; height: 40%;"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.020094559673!2d106.407704!3d-6.2610831000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e420562deddf035%3A0xe83d7170f0bbe651!2sSEBELAH%20GUDANG%20CAFE!5e0!3m2!1sid!2sid!4v1751288408332!5m2!1sid!2sid"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.042756717545!2d106.5294265!3d-6.1708931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e420076990177e9%3A0x260ff2a387d367f0!2sRuko%20Pasar%20Kemis!5e0!3m2!1sid!2sid!4v1722510000000!5m2!1sid!2sid"
                                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
@@ -138,16 +138,16 @@
                         <div class="single-footer-widget tp_widgets">
                             <h4 class="footer_title">Kategori</h4>
                             <ul class="list">
-                                <li><a href="#">Coffee</a></li>
-                                <li><a href="#">Non Coffee</a></li>
-                                <li><a href="#">Makanane</a></li>
+                                <li><a href="#">Sparepar Mesin</a></li>
+                                <li><a href="#">Kaki-Kaki</a></li>
+                                <li><a href="#">Accesoris</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <div class="single-footer-widget tp_widgets">
                             <h4 class="footer_title">Kontak</h4>
-                            <p>081398446979</p>
+                            <p>089762538173</p>
                         </div>
                     </div>
                 </div>
@@ -161,7 +161,7 @@
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script> All rights reserved | Sebelah Gudang <i class="fa fa-heart"
+                        </script> All rights reserved | H. ILI MOTOR <i class="fa fa-heart"
                             aria-hidden="true"></i> <a href="#" target="_blank"></a>
                     </p>
                 </div>

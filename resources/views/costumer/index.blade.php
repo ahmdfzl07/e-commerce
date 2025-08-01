@@ -24,7 +24,7 @@
                         <div class="hero-banner__content">
                             <h4>Belanja itu menyenangkan</h4>
                             <h1>Jelajahi Produk Premium Kami</h1>
-                            <p>Kami yang lebih dari tanda-tanda membagi kekuasaan dalam kedalaman tanpa mengisi membawa mereka daging berada di atas bumi sendiri tanpa pagi di atas ketiga. Jantan mereka kering. Mereka adalah besar muncul siapa tanah terbang rumput..</p>
+                            <p>Kami menyediakan berbagai macam sparepart berkualitas tinggi untuk kendaraan Anda. Dengan stok lengkap dan harga bersaing, kami siap membantu memenuhi kebutuhan perbaikan dan perawatan Anda. Keandalan dan kepuasan pelanggan adalah prioritas utama kami.</p>
                             <a class="button button-hero" href=" {{ route('home.product') }} ">Belanja Sekarang</a>
                         </div>
                     </div>

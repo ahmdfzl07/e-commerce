@@ -149,7 +149,7 @@
 
                             <td>
                                 <strong>PENGIRIM</strong><br>
-                                SEBELAH GUDANG<br>
+                                H. ILI MOTOR<br>
                                 085343966997<br>
                                 Jl Sultan Hasanuddin<br>
                                 Somba Opu, Kab Tangerang<br>

@@ -20,7 +20,7 @@
     <!-- CSRF Token --->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>SEBELAH GUDANG</title>
+    <title>H. ILI MOTOR</title>
     <link rel="icon" type="image/png" href="{{ asset('dist/img/logo.png') }}" />
 
     <!-- Google Font: Source Sans Pro -->
@@ -739,7 +739,7 @@
             <!-- Brand Logo -->
             <a href="{{ url('/home') }}" class="brand-link">
                 <img src="{{ asset('dist/img/logo.png') }}" alt="AdminLTE Logo" style="opacity: .8; width:100%">
-                {{-- <span class="brand-text font-weight-light">SEBELAH GUDANG</span> --}}
+                {{-- <span class="brand-text font-weight-light">H. ILI MOTOR</span> --}}
             </a>
 
             <!-- Sidebar -->
@@ -902,7 +902,7 @@
 
         <!-- Main Footer -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2022 <a href="https://adminlte.io">SEBELAH GUDANG</a>.</strong>
+            <strong>Copyright &copy; 2022 <a href="https://adminlte.io">H. ILI MOTOR</a>.</strong>
 
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.2.0

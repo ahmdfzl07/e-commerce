@@ -12,7 +12,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>SEBELAH GUDANG</title>
+    <title>H. ILI MOTOR</title>
     <link rel="icon" type="image/png" href="{{ asset('dist/img/intec-favicon.png') }}" />
 
     <!-- Google Font: Source Sans Pro -->

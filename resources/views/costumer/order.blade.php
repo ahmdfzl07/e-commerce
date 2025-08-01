@@ -46,7 +46,7 @@
                         <div class="card-header">BCA</div>
                             <div class="card-body">
                                 <h5 class="card-title">7112113277</h5>
-                                <p class="card-text">Atas Nama Dimas Badrussalam</p>
+                                <p class="card-text">Atas Nama Martin Abraham</p>
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                         <div class="card-header">BNI</div>
                             <div class="card-body">
                                 <h5 class="card-title">7112113277</h5>
-                                <p class="card-text">Atas Nama Dimas Badrussalam</p>
+                                <p class="card-text">Atas Nama Martin Abraham</p>
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                         <div class="card-header">BRI</div>
                             <div class="card-body">
                                 <h5 class="card-title">7112113277</h5>
-                                <p class="card-text">Atas Nama Dimas Badrussalam</p>
+                                <p class="card-text">Atas Nama Martin Abraham</p>
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                         <div class="card-header">Mandiri</div>
                             <div class="card-body">
                                 <h5 class="card-title">7112113277</h5>
-                                <p class="card-text">Atas Nama Dimas Badrussalam</p>
+                                <p class="card-text">Atas Nama Martin Abraham</p>
                             </div>
                         </div>
                     </div>

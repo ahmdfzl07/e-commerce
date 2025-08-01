@@ -39,7 +39,7 @@
             <div class="d-none d-sm-block mb-5 pb-4">
                 <div id="map" style="height: 420px;">
                     <iframe style="width: 100%; height: 100%;"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.020094559673!2d106.407704!3d-6.2610831000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e420562deddf035%3A0xe83d7170f0bbe651!2sSEBELAH%20GUDANG%20CAFE!5e0!3m2!1sid!2sid!4v1751288408332!5m2!1sid!2sid"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.042756717545!2d106.5294265!3d-6.1708931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e420076990177e9%3A0x260ff2a387d367f0!2sRuko%20Pasar%20Kemis!5e0!3m2!1sid!2sid!4v1722510000000!5m2!1sid!2sid"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
@@ -52,24 +52,24 @@
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-home"></i></span>
                         <div class="media-body">
-                            <h3>California United States</h3>
-                            <p>Santa monica bullevard</p>
+                            <h3>Pasar Kemis</h3>
+                            <p>Ruko Pasar Kemis</p>
                         </div>
                     </div>
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-headphone"></i></span>
                         <div class="media-body">
-                            <h3><a href="tel:454545654">00 (440) 9865 562</a></h3>
-                            <p>Mon to Fri 9am to 6pm</p>
+                            <h3><a href="tel:454545654">085770987828</a></h3>
+                            <p>Setiap Hari</p>
                         </div>
                     </div>
-                    <div class="media contact-info">
+                    {{-- <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-email"></i></span>
                         <div class="media-body">
                             <h3><a href="mailto:support@colorlib.com">support@colorlib.com</a></h3>
                             <p>Send us your query anytime!</p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-md-8 col-lg-9">
                     <form action="#/" class="form-contact contact_form" action="contact_process.php" method="post"

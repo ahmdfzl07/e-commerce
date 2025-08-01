@@ -33,14 +33,14 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                
+
                 <div class="row  mb-2 text-center">
                     <div class="col-md-3">
                         <div class="card text-white bg-info mb-3 " style="max-width: 18rem;">
                         <div class="card-header">BCA</div>
                             <div class="card-body">
                                 <h5 class="card-title">71118878</h5>
-                                <p class="card-text">Atas Nama Dimas Badrussalam</p>
+                                <p class="card-text">Atas Nama Martin Abraham</p>
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                         <div class="card-header">BNI</div>
                             <div class="card-body">
                                 <h5 class="card-title">71118878</h5>
-                                <p class="card-text">Atas Nama Dimas Badrussalam</p>
+                                <p class="card-text">Atas Nama Martin Abraham</p>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                         <div class="card-header">BRI</div>
                             <div class="card-body">
                                 <h5 class="card-title">71118878</h5>
-                                <p class="card-text">Atas Nama Dimas Badrussalam</p>
+                                <p class="card-text">Atas Nama Martin Abraham</p>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                         <div class="card-header">Mandiri</div>
                             <div class="card-body">
                                 <h5 class="card-title">71118878</h5>
-                                <p class="card-text">Atas Nama Dimas Badrussalam</p>
+                                <p class="card-text">Atas Nama Martin Abraham</p>
                             </div>
                         </div>
                     </div>
