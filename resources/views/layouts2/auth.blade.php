@@ -75,7 +75,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('') }}/vendor_counter/css/main.css">
     <!--===============================================================================================-->
 
-    <div class="flex-w flex-c cd100 wsize1 bor1" style="margin-bottom: 50px;">
+    {{-- <div class="flex-w flex-c cd100 wsize1 bor1" style="margin-bottom: 50px;">
         <div class="flex-col-c-m size2 bg0 bor2">
             <span class="l1-txt3 p-b-7 days">35</span>
             <span class="s1-txt1">Days</span>
@@ -95,7 +95,7 @@
             <span class="l1-txt3 p-b-7 seconds">39</span>
             <span class="s1-txt1">Seconds</span>
         </div>
-    </div>
+    </div> --}}
 
     <!--===============================================================================================-->
     <script src="{{ url('') }}/vendor_counter/jquery/jquery-3.2.1.min.js"></script>

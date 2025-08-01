@@ -31,49 +31,50 @@
         </div>
     </section>
 
-    <section class="login_box_area section-margin">
-        <div class="container">
-            <div class="row">
-                <!-- Logo area -->
-                <div class="col-lg-6">
-                    <div class="login_box_img">
-                        <div class="hover text-center">
-                            <img src="{{ asset('costumer/img/logo.png') }}" alt="Logo" style="max-width: 200px;">
-                            <h4>Baru di situs web kami?</h4>
-                            <p>Daftar sekarang dan nikmati berbagai fitur menarik.</p>
-                            <a class="button button-account" href="{{ route('costumer.register') }}">Buat Akun</a>
-                        </div>
-                    </div>
-                </div>
+ <section class="login_box_area section-margin" style="background: url('{{ asset('costumer/img/bg-motor.jpg') }}') no-repeat center center; background-size: cover; padding: 100px 0;">
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="background-color: rgba(255, 255, 255, 0.9); border-radius: 12px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
 
-                <!-- Login Form -->
-                <div class="col-lg-6">
-                    <div class="login_form_inner">
-                        <h3>Log in</h3>
-                        <form class="row login_form" method="POST" action="{{ route('costumer.login.post') }}">
-                            @csrf
-                            <div class="col-md-12 form-group">
-                                <input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}" autofocus required>
+            <!-- Logo + Daftar -->
+            <div class="col-lg-6 d-none d-lg-block text-center" style="border-right: 1px solid #ccc;">
+                <img src="{{ asset('dist/img/mesin2.jpeg') }}" alt="Logo" style="max-width: 180px; margin-bottom: 20px;">
+                <h4 style="color: #2c3e50;">Baru di situs kami?</h4>
+                <p style="color: #7f8c8d;">Daftar sekarang dan nikmati berbagai fitur menarik untuk kebutuhan sparepart motor Anda.</p>
+                <a href="{{ route('costumer.register') }}" style="display: inline-block; margin-top: 15px; padding: 10px 25px; background-color: #e67e22; color: white; border-radius: 25px; text-decoration: none;">
+                    Buat Akun
+                </a>
+            </div>
+
+            <!-- Form Login -->
+            <div class="col-lg-6 col-md-10">
+                <div style="padding: 30px;">
+                    <h3 style="text-align: center; color: #2c3e50; margin-bottom: 30px;">Login Pelanggan</h3>
+                    <form class="row login_form" method="POST" action="{{ route('costumer.login.post') }}">
+                        @csrf
+                        <div class="col-md-12 form-group" style="margin-bottom: 20px;">
+                            <input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}" required style="padding: 12px 20px; border-radius: 25px; border: 1px solid #ccc;">
+                        </div>
+                        <div class="col-md-12 form-group" style="margin-bottom: 20px;">
+                            <input type="password" class="form-control" name="password" placeholder="Password" required style="padding: 12px 20px; border-radius: 25px; border: 1px solid #ccc;">
+                        </div>
+                        <div class="col-md-12 form-group" style="margin-bottom: 20px;">
+                            <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <label for="remember"> Remember Me</label>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <button type="submit" style="width: 100%; padding: 12px; background-color: #e74c3c; border: none; border-radius: 25px; color: white; font-weight: bold;">Log In</button>
+                            <div style="margin-top: 10px; text-align: center;">
+                                <a href="#" style="color: #7f8c8d; text-decoration: none;">Forgot Password?</a>
                             </div>
-                            <div class="col-md-12 form-group">
-                                <input type="password" class="form-control" name="password" placeholder="Password" required>
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <div class="creat_account">
-                                    <input type="checkbox" id="f-option2" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                    <label for="f-option2">Remember Me</label>
-                                </div>
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <button type="submit" class="button button-login w-100">Log In</button>
-                                <a href="#">Forgot Password?</a>
-                            </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- SweetAlert Flash -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@latest"></script>

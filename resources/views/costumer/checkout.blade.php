@@ -31,85 +31,78 @@
 
 
     <!--================Checkout Area =================-->
-    <section class="checkout_area section-margin--small">
-        <div class="container">
-            <h1>Checkout Produk</h1>
-            <div class="billing_details">
-                <div class="row">
-                    @if (session('error'))
-                        <div class="alert alert-danger">{{ session('error') }}</div>
-                    @endif
-                    <div class="col-lg-8">
-                        <h3>Detail Pembayaran</h3>
-                        <form class="row contact_form" action=" {{ route('home.checkoutproses') }} " method="post"
-                            novalidate="novalidate">
-                            @csrf
-                            <div class="col-md-6 form-group p_star">
-                                <input type="hidden" name="invoice" value=" {{ Str::random(4) . '-' . time() }} " required>
-                                <input type="hidden" name="customer_id" value=" {{ Auth::guard('costumer')->user()->id }} "
-                                    required>
-                                <input type="text" class="form-control" id="first" name="customer_name"
-                                    value=" {{ Auth::guard('costumer')->user()->name }} " required>
-                                <span class="placeholder" data-placeholder="First name"></span>
-                            </div>
-                            <div class="col-md-6 form-group p_star">
-                                <input type="text" class="form-control" name="customer_phone"
-                                    value=" {{ Auth::guard('costumer')->user()->phone_number }} " required>
-                                <span class="placeholder" data-placeholder="Last name"></span>
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" name="customer_address"
-                                    value="{{ Auth::guard('costumer')->user()->address }}" required>
-                                <input type="hidden" class="form-control" name="district_id"
-                                    value="{{ Auth::guard('costumer')->user()->district_id }}" required>
-                                <input type="hidden" class="form-control" name="citie_id"
-                                    value="{{ Auth::guard('costumer')->user()->citie_id }}" required>
-                                <input type="hidden" class="form-control" name="subtotal" value="{{ $subtotal }}"
-                                    required>
-                                {{-- <input type="hidden" class="form-control" name="cost"
-                                    value="{{ $subtotal + $cost[0]['costs'][1]['cost'][0]['value'] }}" required>
-                                <input type="hidden" class="form-control" name="shipping"
-                                    value="{{ $cost[0]['costs'][1]['cost'][0]['value'] }}" required> --}}
-                                <input type="hidden" class="form-control" name="status" value="0" required>
-                            </div>
+ <section style="padding: 60px 0; background: #f5f8fa; font-family: 'Segoe UI', sans-serif;">
+  <div style="max-width: 1140px; margin: auto;">
+    <h1 style="font-size: 32px; font-weight: 600; margin-bottom: 30px; color: #333;">Checkout Produk</h1>
 
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="order_box">
-                            <h2>Pesanan Anda</h2>
-                            <ul class="list">
-                                <li><a href="#">
-                                        <h4>Product <span>Total</span></h4>
-                                    </a></li>
-                                @foreach ($cart as $row)
-                                    <li><a href="#">{{ $row->product->name }} <span class="middle">x
-                                                {{ $row->qty }} </span> <span class="last">Rp.
-                                                {{ number_format($row->cart_price * $row->qty) }} </span></a></li>
-                                @endforeach
-                            </ul>
-                            <ul class="list list_2">
-                                <li><a href="#">Subtotal <span>Rp. {{ number_format($subtotal) }}</span></a></li>
-                                {{-- <li><a href="#">Kurir <span id="ongkir">{{ $cost[0]['code'] }}</span></a></li>
-                                <li><a href="#">Ongkir <span id="ongkir"> Rp.
-                                            {{ number_format($cost[0]['costs'][1]['cost'][0]['value']) }} </span></a></li>
-                                <li><a href="#">Perkiraan waktu sampai <span
-                                            id="ongkir">({{ $cost[0]['costs'][1]['cost'][0]['etd'] }})Hari</span></a>
-                                </li>
+    <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+      <!-- Form Area -->
+      <div style="flex: 2; min-width: 300px; background: white; border-radius: 10px; padding: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+        <h3 style="margin-bottom: 20px; color: #444;">Detail Pembayaran</h3>
 
-                                <li><a href="#">Total <span id="total">Rp.
-                                            {{ number_format($subtotal + $cost[0]['costs'][1]['cost'][0]['value']) }}</span></a>
-                                </li> --}}
-                            </ul>
-                            <div class="text-center">
-                                <button class="button button-paypal" type="submit">Bayar Pesanan</button>
-                            </div>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+        @if (session('error'))
+          <div style="background: #f8d7da; padding: 10px; border-radius: 6px; color: #721c24; margin-bottom: 20px;">
+            {{ session('error') }}
+          </div>
+        @endif
+
+        <form action="{{ route('home.checkoutproses') }}" method="post">
+          @csrf
+          <input type="hidden" name="invoice" value="{{ Str::random(4) . '-' . time() }}">
+          <input type="hidden" name="customer_id" value="{{ Auth::guard('costumer')->user()->id }}">
+
+          <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+            <input type="text" name="customer_name" placeholder="Nama Lengkap"
+              value="{{ Auth::guard('costumer')->user()->name }}"
+              style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 6px;" required>
+
+            <input type="text" name="customer_phone" placeholder="Nomor Telepon"
+              value="{{ Auth::guard('costumer')->user()->phone_number }}"
+              style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 6px;" required>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <input type="text" name="customer_address" placeholder="Alamat Lengkap"
+              value="{{ Auth::guard('costumer')->user()->address }}"
+              style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px;" required>
+          </div>
+
+          <input type="hidden" name="district_id" value="{{ Auth::guard('costumer')->user()->district_id }}">
+          <input type="hidden" name="citie_id" value="{{ Auth::guard('costumer')->user()->citie_id }}">
+          <input type="hidden" name="subtotal" value="{{ $subtotal }}">
+          <input type="hidden" name="status" value="0">
+      </div>
+
+      <!-- Order Summary -->
+      <div style="flex: 1; min-width: 280px; background: white; border-radius: 10px; padding: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+        <h2 style="font-size: 24px; margin-bottom: 20px; color: #444;">Pesanan Anda</h2>
+        <ul style="list-style: none; padding: 0; margin: 0 0 20px 0;">
+          <li style="display: flex; justify-content: space-between; font-weight: 600; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px;">
+            <span>Produk</span><span>Total</span>
+          </li>
+          @foreach ($cart as $row)
+          <li style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+            <span>{{ $row->product->name }} x {{ $row->qty }}</span>
+            <span>Rp. {{ number_format($row->cart_price * $row->qty) }}</span>
+          </li>
+          @endforeach
+        </ul>
+
+        <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
+          <li style="display: flex; justify-content: space-between; font-weight: bold;">
+            <span>Subtotal</span><span>Rp. {{ number_format($subtotal) }}</span>
+          </li>
+        </ul>
+
+        <button type="submit" style="width: 100%; padding: 12px; background: #28a745; color: white; font-weight: bold; border: none; border-radius: 6px; font-size: 16px;">
+          Bayar Pesanan
+        </button>
+      </div>
+    </form>
+    </div>
+  </div>
+</section>
+
     <!--================End Checkout Area =================-->
 @endsection
 

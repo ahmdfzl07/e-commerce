@@ -759,15 +759,14 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{ asset('storage/users/' . Auth::user()->profile_image) }}"
-                            class="img-circle elevation-2" alt="User Image" style="margin-top: 15px;">
-
+                         <a href="{{ url('/home') }}" class="brand-link">
+                        <img src="{{ asset('dist/img/vector.png') }}" alt="AdminLTE Logo" style="opacity: .8; width:30%;"
+                            height="30">
+                        <span class="brand-text font-weight-light">Admin</span>
+                    </a>
                     </div>
-                    <div class="info">
+                    {{-- <div class="info">
                         <!-- User's Name -->
-                        <a href="#" class="d-block">
-                            &nbsp;&nbsp;&nbsp; {{ isset($user_check) ? Auth::user()->name : '' }}
-                        </a>
                         <a href="{{ route('logout') }}" class="nav-link"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <p>Logout</p>
@@ -776,7 +775,7 @@
                             style="display: none;">
                             @csrf
                         </form>
-                    </div>
+                    </div> --}}
 
 
                 </div>
@@ -890,6 +889,26 @@
                             $userRole = Auth::user()->roles->pluck('name')->implode(',');
                         @endphp --}}
                     </ul>
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    {{-- <div class="image">
+                        <img src="{{ asset('storage/users/' . Auth::user()->profile_image) }}"
+                            class="img-circle elevation-2" alt="User Image" style="margin-top: 15px;">
+
+                    </div> --}}
+                    <div class="info">
+                        <!-- User's Name -->
+                        <a href="{{ route('logout') }}" class="nav-link"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <p>Logout</p>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                            style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+
+
+                </div>
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
@@ -1001,9 +1020,7 @@
 
 
 
-
-
-    <!-- Page specific script -->
+<!-- Page specific script -->
     <script>
         $(function() {
             soundManager.url = "{{ asset('js/swf/') }}";
@@ -1029,7 +1046,7 @@
                             const Toast = Swal.mixin({
                                 toast: true,
                                 position: "top-end",
-                                showConfirmButton: false,
+                                        showConfirmButton: false,
                                 timer: 3000,
                                 timerProgressBar: true,
                                 // didOpen: (toast) => {

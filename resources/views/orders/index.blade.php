@@ -142,24 +142,55 @@
                                                         <a class="btn btn-outline-danger btn-sm" href="/costumer/pdf/{{ $row->id }}">View invoice</a>
                                                     @endif
                                                 </td>
-                                                <td>
-                                                    @if ($row->details && $row->details->count() > 0)
-                                                        <ul style="padding-left: 15px;">
-                                                            @foreach ($row->details as $detail)
-                                                                <li>
-                                                                    <strong>{{ $detail->product->name ?? 'Produk tidak ditemukan' }}</strong><br>
-                                                                    Harga: Rp {{ number_format($detail->price) }} x {{ $detail->qty }}<br>
-                                                                    Subtotal: Rp {{ number_format($detail->price * $detail->qty) }}
-                                                                </li>
-                                                            @endforeach
-                                                            <hr>
-                                                            {{-- <strong>Ongkir:</strong> Rp {{ number_format($row->shipping) }}<br>
-                                                            <strong>Total:</strong> Rp {{ number_format($row->cost) }} --}}
-                                                        </ul>
-                                                    @else
-                                                        <span class="badge badge-danger">Tidak ada detail</span>
-                                                    @endif
-                                                </td>
+                                              <td>
+    @if ($row->details && $row->details->count() > 0)
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#detailModal{{ $row->id }}">
+            Lihat Detail
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="detailModal{{ $row->id }}" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel{{ $row->id }}" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailModalLabel{{ $row->id }}">Detail Pesanan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Tutup">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Produk</th>
+                                    <th>Harga</th>
+                                    <th>Qty</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($row->details as $index => $detail)
+                                    <tr>
+                                        <td>{{ $index + 1 }}</td>
+                                        <td>{{ $detail->product->name ?? 'Produk tidak ditemukan' }}</td>
+                                        <td>Rp {{ number_format($detail->price) }}</td>
+                                        <td>{{ $detail->qty }}</td>
+                                        <td>Rp {{ number_format($detail->price * $detail->qty) }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @else
+        <span class="badge badge-danger">Tidak ada detail</span>
+    @endif
+</td>
+
+
                                             </tr>
                                         @empty
                                             <tr>

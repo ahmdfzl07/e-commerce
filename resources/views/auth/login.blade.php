@@ -277,55 +277,69 @@
         }
     </style>
 
-    <div class="login-box">
-        <img class="img-responsive text-center logo-zoom" style="display:block;margin:0 auto 20px auto; max-height:80px"
-            src="{{ asset('dist/img/logo.png') }}">
+   <div class="login-box" style="max-width: 400px; margin: auto; padding-top: 50px;">
+    <img class="img-responsive text-center logo-zoom"
+        style="display:block;margin:0 auto 20px auto; max-height:80px"
+        src="{{ asset('dist/img/logo.png') }}" alt="Logo Toko Sparepart">
 
-        <div class="card card-outline card-primary">
-            <div class="card-header text-center">
-                <h1 class="animate-text">
-                    <span class="erp"> <b>Log In</b></span>
-                </h1>
-            </div>
-            <div class="card-body">
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header text-center bg-dark text-white">
+            <h3 style="font-family: 'Orbitron', sans-serif;">Login Toko Sparepart</h3>
+            <p class="mb-0" style="font-size: 0.9rem;">Silakan masuk untuk melanjutkan</p>
+        </div>
 
-                <form method="POST" action="{{ route('proses_login') }}">
-                    @csrf
-                    <div class="input-group mb-3">
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                            name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
-                        @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    <div class="input-group mb-3">
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                            name="password" required autocomplete="current-password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    <div class="row">
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+        <div class="card-body bg-light">
+            <form method="POST" action="{{ route('proses_login') }}">
+                @csrf
+
+                <div class="input-group mb-3">
+                    <input id="email" type="email"
+                        class="form-control @error('email') is-invalid @enderror"
+                        placeholder="Email Anda"
+                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <div class="input-group-append">
+                        <div class="input-group-text bg-dark text-white">
+                            <span class="fas fa-envelope"></span>
                         </div>
                     </div>
-                </form>
-            </div>
+                    @error('email')
+                        <span class="invalid-feedback d-block" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="input-group mb-4">
+                    <input id="password" type="password"
+                        class="form-control @error('password') is-invalid @enderror"
+                        placeholder="Kata Sandi"
+                        name="password" required autocomplete="current-password">
+                    <div class="input-group-append">
+                        <div class="input-group-text bg-dark text-white">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                    @error('password')
+                        <span class="invalid-feedback d-block" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary btn-block rounded-pill px-5">
+                            Masuk
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="card-footer text-muted text-center small">
+            © {{ date('Y') }} H. Ili Motor – Sparepart & Servis Motor
         </div>
     </div>
+</div>
+
 @endsection

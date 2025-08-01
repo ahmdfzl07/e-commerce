@@ -9,106 +9,65 @@
 @endsection
 
 @section('main')
-    <main class="site-main">
+  <main class="site-main">
 
-        <!--================ Hero banner start =================-->
-        <section class="hero-banner">
-            <div class="container">
-                <div class="row no-gutters align-items-center pt-60px">
-                    <div class="col-5 d-none d-sm-block">
-                        <div class="hero-banner__img">
-                            <img class="img-fluid" src="{{ asset('dist/img/logo.png') }}" alt="">
+    <!-- =============== Hero Banner =============== -->
+    <section style="background: linear-gradient(135deg, #838180, #feb47b); padding: 80px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-white">
+                    <h4 style="font-size: 22px; font-weight: 400;">Belanja itu menyenangkan</h4>
+                    <h1 style="font-size: 48px; font-weight: bold; line-height: 1.2;">Jelajahi Produk<br>Premium Kami</h1>
+                    <p style="font-size: 16px; margin: 20px 0;">Kami menyediakan berbagai macam sparepart berkualitas tinggi untuk kendaraan Anda. Dengan stok lengkap dan harga bersaing.</p>
+                    <a href="{{ route('home.product') }}" style="background: #fff; color: #ff6b4a; padding: 12px 28px; border-radius: 30px; font-weight: bold; text-decoration: none;">Belanja Sekarang</a>
+                </div>
+                {{-- <div class="col-md-6 text-center">
+                    <img src="{{ asset('dist/img/logo.png') }}" alt="Sparepart" style="max-width: 100%; height: auto;">
+                </div> --}}
+            </div>
+        </div>
+    </section>
+
+    <!-- =============== Trending Product Section =============== -->
+    <section style="padding: 80px 0; background: #f8f9fa;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p style="font-size: 18px; color: #6c757d;">Tampil trendi dengan produk terbaru kami.</p>
+                <h2 style="font-size: 36px; font-weight: bold;">Produk <span style="color: #ff6b4a;">Terbaru</span></h2>
+            </div>
+
+            <div class="row">
+                @foreach ($products as $row)
+                <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
+                    <div style="background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: 0.3s;">
+                        <div style="position: relative;">
+                            <img src="{{ asset('products/' . $row->image) }}" alt="{{ $row->name }}" style="width: 100%; height: 250px; object-fit: cover;">
+                            <a href="{{ url('/product/' . $row->slug) }}" style="position: absolute; bottom: 10px; right: 10px; background: #ff6b4a; color: white; padding: 8px 12px; border-radius: 20px; font-size: 14px; text-decoration: none;">
+                                <i class="ti-shopping-cart"></i> Beli
+                            </a>
+                        </div>
+                        <div style="padding: 15px;">
+                            <p style="margin: 0; color: #6c757d; font-size: 14px;">{{ $row->category->name }}</p>
+                            <h5 style="font-size: 18px; font-weight: bold; margin-top: 5px;">{{ $row->name }}</h5>
+                            @if ($row->stock == 0)
+                                <p style="color: red; font-size: 14px;">Stok Habis</p>
+                            @endif
+                            @if ($row->price_discount == 0)
+                                <p style="font-size: 16px; color: #28a745; margin-top: 8px;">Rp. {{ number_format($row->price, 0, ',', '.') }}</p>
+                            @else
+                                <p style="text-decoration: line-through; color: red; font-size: 14px;">Rp. {{ number_format($row->price, 0, ',', '.') }}</p>
+                                <p style="font-size: 16px; color: #28a745;">Rp. {{ number_format($row->price_discount, 0, ',', '.') }}</p>
+                            @endif
                         </div>
                     </div>
-                    <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
-                        <div class="hero-banner__content">
-                            <h4>Belanja itu menyenangkan</h4>
-                            <h1>Jelajahi Produk Premium Kami</h1>
-                            <p>Kami menyediakan berbagai macam sparepart berkualitas tinggi untuk kendaraan Anda. Dengan stok lengkap dan harga bersaing, kami siap membantu memenuhi kebutuhan perbaikan dan perawatan Anda. Keandalan dan kepuasan pelanggan adalah prioritas utama kami.</p>
-                            <a class="button button-hero" href=" {{ route('home.product') }} ">Belanja Sekarang</a>
-                        </div>
-                    </div>
                 </div>
+                @endforeach
             </div>
-        </section>
-        <!--================ Hero banner start =================-->
+        </div>
+    </section>
 
-        <!--================ Hero Carousel start =================-->
-        <section class="section-margin mt-0">
-            <div class="owl-carousel owl-theme hero-carousel">
-                <div class="hero-carousel__slide">
-                    <img src="img/home/hero-slide1.png" alt="" class="img-fluid">
-                    <a href="#" class="hero-carousel__slideOverlay">
-                        <h3>Wireless Headphone</h3>
-                        <p>Accessories Item</p>
-                    </a>
-                </div>
-                <div class="hero-carousel__slide">
-                    <img src="img/home/hero-slide2.png" alt="" class="img-fluid">
-                    <a href="#" class="hero-carousel__slideOverlay">
-                        <h3>Wireless Headphone</h3>
-                        <p>Accessories Item</p>
-                    </a>
-                </div>
-                <div class="hero-carousel__slide">
-                    <img src="img/home/hero-slide3.png" alt="" class="img-fluid">
-                    <a href="#" class="hero-carousel__slideOverlay">
-                        <h3>Wireless Headphone</h3>
-                        <p>Accessories Item</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-        <!--================ Hero Carousel end =================-->
+</main>
 
-        <!-- ================ trending product section start ================= -->
-        <section class="section-margin calc-60px">
-            <div class="container">
-                <div class="section-intro pb-60px">
-                    <p>Tampil trendi dengan produk terbaru kami.</p>
-                    <h2>Produk <span class="section-intro__style">Terbaru</span></h2>
-                </div>
-                <div class="row">
-
-                    @foreach ($products as $row)
-                        <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
-                            <div class="card text-center card-product shadow" style="height: 100%; width: 100%;">
-                                <div class="card-product__img">
-                                    <img class="card-img" src="{{ asset('products/' . $row->image) }}"
-                                        alt="{{ $row->name }}" style="max-height: 100%; width: 100%;">
-                                    <ul class="card-product__imgOverlay">
-                                        <li><a href="{{ url('/product/' . $row->slug) }}"><button><i
-                                                        class="ti-shopping-cart"></i></button></a></li>
-                                        {{-- <li><button><i class="ti-heart"></i></button></li> --}}
-                                    </ul>
-                                </div>
-                                <!-- <div class="card-body">
-                                    <p>{{ $row->category->name }}</p>
-                                    <h4 class="card-product__title"><a
-                                            href="{{ url('/costumer/product/' . $row->slug) }}">{{ $row->name }}</a></h4>
-                                    @if ($row->stock == 0)
-                                        <p class="text-danger">Habis</p>
-                                    @endif
-                                    @if ($row->price_discount == 0)
-                                        <p class="card-product__price">Rp. {{ number_format($row->price, 2, ',', '.') }}
-                                        </p>
-                                    @else
-                                        <p style="text-decoration: line-through; color:red;" class="card-product__price">Rp.
-                                            {{ number_format($row->price, 2, ',', '.') }}</p>
-                                        <p class="card-product__price">Rp.
-                                            {{ number_format($row->price_discount, 2, ',', '.') }}</p>
-                                    @endif
-                                </div> -->
-                            </div>
-                        </div>
-                    @endforeach
-
-                </div>
-            </div>
-        </section>
-        <!-- ================ trending product section end ================= -->
-
-    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@latest"></script>
     <script>

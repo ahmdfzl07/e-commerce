@@ -25,102 +25,72 @@
             </div>
         </div>
     </section>
-    <!-- ================ end banner area ================= -->
 
-    <!--================Login Box Area =================-->
-    <section class="login_box_area section-margin">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="login_box_img">
-                        <div class="hover">
-                            <h4>Already have an account?</h4>
-                            <p>There are advances being made in science and technology everyday, and a good example of this is the</p>
-                            <a class="button button-account" href="{{Route('costumer.login')}}">Login Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="login_form_inner register_form_inner">
-                        <h3>Create an account</h3>
-                        <form class="row login_form" method="POST" action="{{ route('costumer.register.post') }}" id="register_form" >
-                            @csrf
-                            <div class="col-md-12 form-group">
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Your Name" :value="old('name')" required autofocus autocomplete="name">
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email Alamat" :value="old('email')" required>
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Password" required autocomplete="new-password">
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="text" class="form-control @error('phone_number') is-invalid @enderror" id="phone_number" name="phone_number" placeholder="Your Phone Number" :value="old('phone_number')" required autocomplete="phone_number">
-                                @error('phone_number')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="text" class="form-control @error('address') is-invalid @enderror" id="address" name="address" placeholder="Your Alamat" :value="old('address')" required autocomplete="address">
-                                @error('address')
-                                        <strong>{{ $message }}</strong>
-                                @enderror
-                            </div>
-
-                            <div class="col-md-12 form-group p_star">
-                                <label for="">Propinsi</label>
-                                <select class="form-control" id="province_id" name="province_id" required>
-                                    <option value="">Pilih Propinsi</option>
-                                    @foreach ($provinces as $row)
-                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                    @endforeach
-                                </select>
-                                <p class="text-danger">{{ $errors->first('province_id') }}</p>
-                            </div>
-                            <div class="col-md-12 form-group p_star">
-                                <label for="">Kabupaten / Kota</label>
-                                <select class="form-control" name="citie_id" id="city_id" required>
-                                    <option value="">Pilih Kabupaten/Kota</option>
-                                </select>
-                                <p class="text-danger">{{ $errors->first('city_id') }}</p>
-                            </div>
-                            <div class="col-md-12 form-group p_star">
-                                <label for="">Kecamatan</label>
-                                <select class="form-control" name="district_id" id="district_id" required>
-                                    <option value="">Pilih Kecamatan</option>
-                                </select>
-                                <p class="text-danger">{{ $errors->first('district_id') }}</p>
-                            </div>
-
-                            <div class="col-md-12 form-group">
-                                <button type="submit" value="submit" class="button button-register w-100">Register</button>
-                            </div>
-                        </form>
-                    </div>
+<section class="section-margin" style="min-height: 100vh; background: #f4f4f4; padding: 60px 0;">
+    <div class="container">
+        <div class="row justify-content-center shadow-lg" style="background: #fff; border-radius: 12px; overflow: hidden;">
+            <div class="col-lg-5 d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #ffffff, #34495e); color: #fff; padding: 40px;">
+                <div class="text-center">
+                    <img src="{{ asset('dist/img/mesin.png') }}" alt="Motor Icon" style="width: 100px; margin-bottom: 20px;">
+                    <h4>Sudah punya akun?</h4>
+                    <p>Masuk dan kelola pesanan Anda dengan mudah.</p>
+                    <a href="{{ route('costumer.login') }}" class="btn btn-light mt-3" style="color: #34495e;">Login Sekarang</a>
                 </div>
             </div>
+
+            <div class="col-lg-7 p-5">
+                <h3 class="text-center mb-4" style="font-weight: bold; color: #2c3e50;">Buat Akun Baru</h3>
+                <form method="POST" action="{{ route('costumer.register.post') }}">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="email" name="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="password" name="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="password" name="password_confirmation" class="form-control" placeholder="Konfirmasi Password" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="text" name="phone_number" class="form-control" placeholder="Nomor Telepon" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="text" name="address" class="form-control" placeholder="Alamat Lengkap" required>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <select class="form-control" name="province_id" required>
+                                <option value="">Pilih Provinsi</option>
+                                @foreach ($provinces as $row)
+                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <select class="form-control" name="citie_id" required>
+                                <option value="">Pilih Kota</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <select class="form-control" name="district_id" required>
+                                <option value="">Pilih Kecamatan</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-12 mt-4">
+                            <button type="submit" class="btn w-100" style="background-color: #e74c3c; color: white; font-weight: bold;">Daftar Sekarang</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+
 @endsection
 
 @section('js')
