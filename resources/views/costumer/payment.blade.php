@@ -34,47 +34,43 @@
         <h1>Payment Confirmation</h1>
         <div class="card">
             <div class="card-body">
-                <div class="row  mb-2 text-center">
-                    <div class="col-md-3">
-                        <div class="card text-white bg-info mb-3 " style="max-width: 18rem;">
-                        <div class="card-header">BCA</div>
-                            <div class="card-body">
-                                <h5 class="card-title">71118878</h5>
-                                <p class="card-text">Atas Nama Martin Abraham</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card text-white bg-info mb-3 " style="max-width: 18rem;">
-                        <div class="card-header">BNI</div>
-                            <div class="card-body">
-                                <h5 class="card-title">71118878</h5>
-                                <p class="card-text">Atas Nama Martin Abraham</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card text-white bg-info mb-3 " style="max-width: 18rem;">
-                        <div class="card-header">BRI</div>
-                            <div class="card-body">
-                                <h5 class="card-title">71118878</h5>
-                                <p class="card-text">Atas Nama Martin Abraham</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card text-white bg-info mb-3 " style="max-width: 18rem;">
-                        <div class="card-header">Mandiri</div>
-                            <div class="card-body">
-                                <h5 class="card-title">71118878</h5>
-                                <p class="card-text">Atas Nama Martin Abraham</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               <div class="row text-center mb-4">
+      <!-- Bank BCA -->
+      <div class="col-md-3">
+        <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 20px;">
+          <img src="/dist/img/bni.jpeg" alt="BCA" style="height: 40px; margin-bottom: 10px;">
+          <h5 style="margin: 10px 0;">7112113277</h5>
+          <p style="margin: 0;">a.n. Martin Abraham</p>
+        </div>
+      </div>
+      <!-- Bank BNI -->
+      <div class="col-md-3">
+        <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 20px;">
+          <img src="/dist/img/bni.jpeg" alt="BNI" style="height: 40px; margin-bottom: 10px;">
+          <h5 style="margin: 10px 0;">7112113277</h5>
+          <p style="margin: 0;">a.n. Martin Abraham</p>
+        </div>
+      </div>
+      <!-- Bank BRI -->
+      <div class="col-md-3">
+        <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 20px;">
+          <img src="/dist/img/bri.jpeg" alt="BRI" style="height: 40px; margin-bottom: 10px;">
+          <h5 style="margin: 10px 0;">7112113277</h5>
+          <p style="margin: 0;">a.n. Martin Abraham</p>
+        </div>
+      </div>
+      <!-- Bank Mandiri -->
+      <div class="col-md-3">
+        <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 20px;">
+          <img src="/dist/img/mandiri.jpeg" alt="Mandiri" style="height: 40px; margin-bottom: 10px;">
+          <h5 style="margin: 10px 0;">7112113277</h5>
+          <p style="margin: 0;">a.n. Martin Abraham</p>
+        </div>
+      </div>
+    </div>
                 <div class="row  mb-4">
                     <div class="col-md-12 text-center">
-                        Jumlah Transfer Sebesar <b>Rp.{{number_format($order->cost)}}</b> Ke No Rekening Di Atas
+                        Jumlah Transfer Sebesar <b>Rp.{{number_format($order->subtotal)}}</b> Ke No Rekening Di Atas
                     </div>
                 </div>
                 <hr>

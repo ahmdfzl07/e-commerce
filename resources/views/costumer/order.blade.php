@@ -37,190 +37,141 @@
 <!-- ================ end banner area ================= -->
 
 <!--================Order Details Area =================-->
-<section class="order_details section-margin--small">
-<div class="container">
-  <h1>Konfirmasi Pesanan</h1>
-   <div class="row  mb-2 text-center">
-                    <div class="col-md-3">
-                        <div class="card text-white bg-info mb-3 " style="max-width: 18rem;">
-                        <div class="card-header">BCA</div>
-                            <div class="card-body">
-                                <h5 class="card-title">7112113277</h5>
-                                <p class="card-text">Atas Nama Martin Abraham</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card text-white bg-info mb-3 " style="max-width: 18rem;">
-                        <div class="card-header">BNI</div>
-                            <div class="card-body">
-                                <h5 class="card-title">7112113277</h5>
-                                <p class="card-text">Atas Nama Martin Abraham</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card text-white bg-info mb-3 " style="max-width: 18rem;">
-                        <div class="card-header">BRI</div>
-                            <div class="card-body">
-                                <h5 class="card-title">7112113277</h5>
-                                <p class="card-text">Atas Nama Martin Abraham</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card text-white bg-info mb-3 " style="max-width: 18rem;">
-                        <div class="card-header">Mandiri</div>
-                            <div class="card-body">
-                                <h5 class="card-title">7112113277</h5>
-                                <p class="card-text">Atas Nama Martin Abraham</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="row  mb-4">
-                    <div class="col-md-12 text-center">
-                        Jumlah Transfer Sebesar <b>Rp.{{number_format($order->cost)}}</b> Ke No Rekening Di Atas
-                    </div>
-                </div> -->
-  <p class="text-center billing-alert">Terima Kasih Sudah Memesan.</p>
-  <p class="text-center billing-alert" style="color: black;">Silahkan upload bukti pembayaran anda di <a href="/costumer/order-detail">sini</a>.</p>
-  <div class="center">
-    <a href=" /costumer/pdf/{{$order->id}} "><button class="button">Download Invoice</button></a>
-  </div>
-  <hr>
-  <div class="row mb-5">
-    <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-      <div class="confirmation-card">
-        <h3 class="billing-title">Order Info</h3>
-        <table class="order-rable">
+<section style="padding: 60px 0; background: #f7f9fc; font-family: 'Segoe UI', sans-serif;">
+  <div class="container">
+    <h1 style="text-align: center; font-size: 32px; margin-bottom: 40px; color: #333;">Konfirmasi Pesanan</h1>
+
+    <div class="row text-center mb-4">
+      <!-- Bank BCA -->
+      <div class="col-md-3">
+        <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 20px;">
+          <img src="/dist/img/bni.jpeg" alt="BCA" style="height: 40px; margin-bottom: 10px;">
+          <h5 style="margin: 10px 0;">7112113277</h5>
+          <p style="margin: 0;">a.n. Martin Abraham</p>
+        </div>
+      </div>
+      <!-- Bank BNI -->
+      <div class="col-md-3">
+        <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 20px;">
+          <img src="/dist/img/bni.jpeg" alt="BNI" style="height: 40px; margin-bottom: 10px;">
+          <h5 style="margin: 10px 0;">7112113277</h5>
+          <p style="margin: 0;">a.n. Martin Abraham</p>
+        </div>
+      </div>
+      <!-- Bank BRI -->
+      <div class="col-md-3">
+        <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 20px;">
+          <img src="/dist/img/bri.jpeg" alt="BRI" style="height: 40px; margin-bottom: 10px;">
+          <h5 style="margin: 10px 0;">7112113277</h5>
+          <p style="margin: 0;">a.n. Martin Abraham</p>
+        </div>
+      </div>
+      <!-- Bank Mandiri -->
+      <div class="col-md-3">
+        <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 20px;">
+          <img src="/dist/img/mandiri.jpeg" alt="Mandiri" style="height: 40px; margin-bottom: 10px;">
+          <h5 style="margin: 10px 0;">7112113277</h5>
+          <p style="margin: 0;">a.n. Martin Abraham</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center" style="color: #28a745; font-weight: bold;">Terima kasih sudah memesan.</p>
+            <div class="text-center">
+            <a href="/costumer/order-detail" class="btn btn-primary">
+                Upload Bukti Pembayaran
+            </a>
+        </div>
+
+    <div class="text-center my-4">
+      <a href="/costumer/pdf/{{$order->id}}">
+        <button style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-size: 16px;">
+          Download Invoice
+        </button>
+      </a>
+    </div>
+
+    <hr>
+
+    <!-- Order Info, Billing, Shipping -->
+    <div class="row mb-5">
+      <div class="col-md-6 col-xl-4 mb-4">
+        <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <h4>Order Info</h4>
+          <table style="width: 100%; margin-top: 15px;">
+            <tr><td>Nama</td><td>: {{$order->customer->name}}</td></tr>
+            <tr><td>Invoice</td><td>: {{$order->invoice}}</td></tr>
+            <tr><td>Tanggal</td><td>: {{$order->created_at->format('d, M Y')}}</td></tr>
+            <tr><td>Total</td><td>: Rp. {{number_format($order->cost)}}</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-4 mb-4">
+        <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <h4>Billing Alamat</h4>
+          <table style="width: 100%; margin-top: 15px;">
+            <tr><td>Alamat</td><td>: {{$order->customer_address}}</td></tr>
+            <tr><td>Kecamatan</td><td>: {{$order->district->name}}</td></tr>
+            <tr><td>Kota</td><td>: {{$order->citie->name}}</td></tr>
+            <tr><td>Kode Pos</td><td>: {{$order->citie->postal_code}}</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-4 mb-4">
+        <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <h4>Shipping Alamat</h4>
+          <table style="width: 100%; margin-top: 15px;">
+            <tr><td>Street</td><td>: Tigaraksa</td></tr>
+            <tr><td>City</td><td>: Tangerang</td></tr>
+            <tr><td>Negara</td><td>: Indonesia</td></tr>
+            <tr><td>Kode Pos</td><td>: 1205</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Detail Table -->
+    <div class="order_details_table">
+      <h2 style="margin-bottom: 20px;">Detail Pesanan</h2>
+      <div class="table-responsive">
+        <table class="table" style="background: #fff; border-radius: 10px; overflow: hidden;">
+          <thead style="background: #f1f1f1;">
             <tr>
-                <td>Nama</td>
-                <td>: {{$order->customer->name}}</td>
+              <th>Produk</th>
+              <th>Qty</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{$order_detail->product->name}}</td>
+              <td>x {{$order_detail->qty}}</td>
+              <td>Rp. {{number_format($order_detail->price * $order_detail->qty)}}</td>
             </tr>
             <tr>
-            <td>Invoice</td>
-            <td>: {{$order->invoice}}</td>
+              <td><strong>Subtotal</strong></td>
+              <td></td>
+              <td>Rp. {{number_format($order->subtotal)}}</td>
             </tr>
             <tr>
-            <td>Date</td>
-            <td>: {{$order->created_at->format('d, M Y')}}</td>
+              <td><strong>Shipping</strong></td>
+              <td></td>
+              <td>Rp. {{number_format($order->shipping)}}</td>
             </tr>
             <tr>
-            <td>Total</td>
-            <td>: Rp. {{number_format($order->cost)}}</td>
+              <td><strong>Total</strong></td>
+              <td></td>
+              <td><strong>Rp. {{number_format($order->cost)}}</strong></td>
             </tr>
+          </tbody>
         </table>
       </div>
     </div>
-    <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-      <div class="confirmation-card">
-        <h3 class="billing-title">Billing Alamat</h3>
-        <table class="order-rable">
-            <tr>
-            <td>Alamat</td>
-            <td>: {{$order->customer_address}}</td>
-            </tr>
-            <tr>
-            <td>Kecamatan</td>
-            <td>: {{$order->district->name}} </td>
-            </tr>
-            <tr>
-            <td>Kota/Kabupaten</td>
-            <td>: {{$order->citie->name}}</td>
-            </tr>
-            <tr>
-            <td>Postcode</td>
-            <td>: {{$order->citie->postal_code}}</td>
-            </tr>
-        </table>
-      </div>
-    </div>
-    <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-      <div class="confirmation-card">
-        <h3 class="billing-title">Shipping Alamat</h3>
-        <table class="order-rable">
-          <tr>
-            <td>Street</td>
-            <td>: Tigaraksa</td>
-          </tr>
-          <tr>
-            <td>City</td>
-            <td>: Tangerang</td>
-          </tr>
-          <tr>
-            <td>Country</td>
-            <td>: Indonesia</td>
-          </tr>
-          <tr>
-            <td>Postcode</td>
-            <td>: 1205</td>
-          </tr>
-        </table>
-      </div>
-    </div>
+
   </div>
-  <div class="order_details_table">
-    <h2>Order Details</h2>
-    <div class="table-responsive">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Product</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Total</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                  <p>{{$order_detail->product->name}}</p>
-                </td>
-                <td>
-                  <h5>x {{$order_detail->qty}}</h5>
-                </td>
-                <td>
-                  <p>Rp. {{number_format($order_detail->price * $order_detail->qty)}}</p>
-                </td>
-            </tr>
-          <tr>
-            <td>
-              <h4>Subtotal</h4>
-            </td>
-            <td>
-              <h5></h5>
-            </td>
-            <td>
-              <p>Rp. {{number_format($order->subtotal)}}</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h4>Shipping</h4>
-            </td>
-            <td>
-              <h5></h5>
-            </td>
-            <td>
-              <p>Flat rate: RP. {{number_format($order->shipping)}}</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h4>Total</h4>
-            </td>
-            <td>
-              <h5></h5>
-            </td>
-            <td>
-              <h4>Rp. {{number_format($order->cost)}}</h4>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
 </section>
+
 <!--================End Order Details Area =================-->
 @endsection

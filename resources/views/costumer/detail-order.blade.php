@@ -47,8 +47,8 @@
                             <th scope="col">Bukti Pembayaran</th>
                             <th scope="col">Invoice</th>
                             <th scope="col">Alamat</th>
-                            <th scope="col">Subtotal</th>
-                            <th scope="col">Total</th>
+                            <th scope="col">total</th>
+                            {{-- <th scope="col">Total</th> --}}
                             <th scope="col">Status</th>
                         </tr>
                     </thead>
@@ -81,9 +81,9 @@
                                         <td>
                                             <h5>Rp.{{number_format($row->subtotal)}}</h5>
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                             <h5>Rp.{{number_format($row->cost)}}</h5>
-                                        </td>
+                                        </td> --}}
 
                                         <td>
                                             @if ($row->status == 0)
