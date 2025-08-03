@@ -115,8 +115,8 @@
                                 <strong>PENGIRIM</strong><br>
                                 H. ILI MOTOR<br>
                                 085343966997<br>
-                                Jl Sultan Hasanuddin<br>
-                                Somba Opu, Kab Tangerang<br>
+                                Jl Pasar Kemis<br>
+                                , Kab Tangerang<br>
                                 Banten
                             </td>
                         </tr>
