@@ -9,12 +9,15 @@ use App\Models\Citie;
 use App\Models\OrderDetail;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Cart;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Kavist\RajaOngkir\Facades\RajaOngkir;
 use App\Models\Product;
 use App\Models\Payment;
 use Illuminate\Support\Carbon;
 use PDF;
+// use Barryvdh\DomPDF\Facade\Pdf; // pastikan sudah di-import
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
@@ -118,17 +121,27 @@ class OrderController extends Controller
 }
 
 
-    public function generatepdf($id)
-    {
-        $order = Order::where('id', $id)->get();
-        foreach ($order as $row) {
-            $citie = Citie::where('id',$row->citie_id)->get();
-            $order_detail = OrderDetail::where('order_id', $row->id)->get();
-        }
+public function generatepdf($id)
+{
+    try {
+        ini_set('max_execution_time', 120); // Tambah waktu eksekusi
 
-        $pdf = PDF::loadView('costumer.invoice', compact('order', 'citie', 'order_detail'));
+        // Ambil order lengkap beserta relasi
+        $order = Order::with('details.product', 'citie', 'district')->findOrFail($id);
+
+        $citie = $order->citie; // object, bukan array
+        $order_detail = $order->details;
+
+        // Generate PDF dari view
+        $pdf = Pdf::loadView('costumer.invoice', compact('order', 'citie', 'order_detail'));
+
         return $pdf->stream('Invoice.pdf');
+
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
     }
+}
+
 
     public function detail(){
         $order = Order::where('customer_id', Auth::guard('costumer')->user()->id)->get();

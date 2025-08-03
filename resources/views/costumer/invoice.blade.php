@@ -1,10 +1,8 @@
 <!doctype html>
 <html>
-
 <head>
     <meta charset="utf-8">
-    <title>Invoice #{{ $order[0]->invoice }}</title>
-
+    <title>Invoice #{{ $order->invoice }}</title>
     <style>
         .invoice-box {
             max-width: 800px;
@@ -20,8 +18,6 @@
 
         .invoice-box table {
             width: 100%;
-            line-height: normal;
-            /* inherit */
             text-align: left;
         }
 
@@ -71,35 +67,7 @@
             font-weight: bold;
         }
 
-        @media only screen and (max-width: 600px) {
-            .invoice-box table tr.top table td {
-                width: 100%;
-                display: block;
-                text-align: center;
-            }
-
-            .invoice-box table tr.information table td {
-                width: 100%;
-                display: block;
-                text-align: center;
-            }
-        }
-
-        /** RTL **/
-        .rtl {
-            direction: rtl;
-            font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-        }
-
-        .rtl table {
-            text-align: right;
-        }
-
-        .rtl table tr td:nth-child(2) {
-            text-align: left;
-        }
-
-        div.text-center {
+        .text-center {
             text-align: center;
         }
 
@@ -109,7 +77,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="invoice-box">
         <table cellpadding="0" cellspacing="0">
@@ -119,14 +86,13 @@
                         <tr>
                             <td class="title">
                                 <span class="toko">
-                                    <img src="{{ asset('dist/img/logo.png') }}" alt="AdminLTE Logo"
-                                        style="opacity: .8; width:10%;" height="100">
+                                    <img src="{{ public_path('dist/img/logo.png') }}" alt="Logo"
+                                         style="width:10%;" height="100">
                                 </span>
                             </td>
-
                             <td>
-                                Invoice : <strong>#{{ $order[0]->invoice }}</strong><br>
-                                {{ $order[0]->created_at }}<br>
+                                Invoice : <strong>#{{ $order->invoice }}</strong><br>
+                                {{ $order->created_at }}<br>
                             </td>
                         </tr>
                     </table>
@@ -139,14 +105,12 @@
                         <tr>
                             <td>
                                 <strong>PENERIMA</strong><br>
-                                {{ $order[0]->customer_name }}<br>
-                                {{ $order[0]->customer_phone }}<br>
-                                {{ $order[0]->customer_address }}<br>
-                                {{ $order[0]->district->name }}, {{ $citie[0]->name }}<br>
-                                {{ $citie[0]->postal_code }}
-
+                                {{ $order->customer_name }}<br>
+                                {{ $order->customer_phone }}<br>
+                                {{ $order->customer_address }}<br>
+                                {{ $order->district->name }}, {{ $citie->name }}<br>
+                                {{ $citie->postal_code }}
                             </td>
-
                             <td>
                                 <strong>PENGIRIM</strong><br>
                                 H. ILI MOTOR<br>
@@ -174,23 +138,18 @@
                     <td>Rp. {{ number_format($row->price * $row->qty) }}</td>
                 </tr>
             @endforeach
-            <tr class="item">
+
+            {{-- <tr class="item">
                 <td><strong>Ongkir</strong></td>
-                <td>Rp. {{ number_format($order[0]->shipping) }}</td>
-            </tr>
+                <td>Rp. {{ number_format($order->shipping) }}</td>
+            </tr> --}}
             <tr class="total">
                 <td></td>
                 <td>
-                    Total: Rp {{ number_format($order[0]->cost) }}
+                    Total: Rp {{ number_format($row->price * $row->qty) }}
                 </td>
             </tr>
-
         </table>
-        <hr>
-        {{-- <div class="text-center">
-            <h5>*:Pemabayaran dilakukan dengan transfer ke No.Rek (070-00-01877775)</h5>
-        </div> --}}
     </div>
 </body>
-
 </html>
