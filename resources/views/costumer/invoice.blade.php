@@ -3,153 +3,87 @@
 <head>
     <meta charset="utf-8">
     <title>Invoice #{{ $order->invoice }}</title>
-    <style>
-        .invoice-box {
-            max-width: 800px;
-            margin: auto;
-            padding: 30px;
-            border: 1px solid #eee;
-            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
-            font-size: 16px;
-            line-height: 24px;
-            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-            color: #555;
-        }
-
-        .invoice-box table {
-            width: 100%;
-            text-align: left;
-        }
-
-        .invoice-box table td {
-            padding: 5px;
-            vertical-align: top;
-        }
-
-        .invoice-box table tr td:nth-child(2) {
-            text-align: right;
-        }
-
-        .invoice-box table tr.top table td {
-            padding-bottom: 20px;
-        }
-
-        .invoice-box table tr.top table td.title {
-            font-size: 45px;
-            line-height: 45px;
-            color: #333;
-        }
-
-        .invoice-box table tr.information table td {
-            padding-bottom: 40px;
-        }
-
-        .invoice-box table tr.heading td {
-            background: #eee;
-            border-bottom: 1px solid #ddd;
-            font-weight: bold;
-        }
-
-        .invoice-box table tr.details td {
-            padding-bottom: 20px;
-        }
-
-        .invoice-box table tr.item td {
-            border-bottom: 1px solid #eee;
-        }
-
-        .invoice-box table tr.item.last td {
-            border-bottom: none;
-        }
-
-        .invoice-box table tr.total td:nth-child(2) {
-            border-top: 2px solid #eee;
-            font-weight: bold;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .toko {
-            padding: 10px;
-            border-end-end-radius: 100%;
-        }
-    </style>
 </head>
-<body>
-    <div class="invoice-box">
-        <table cellpadding="0" cellspacing="0">
-            <tr class="top">
-                <td colspan="2">
-                    <table>
-                        <tr>
-                            <td class="title">
-                                <span class="toko">
-                                    <img src="{{ public_path('dist/img/logo.png') }}" alt="Logo"
-                                         style="width:10%;" height="100">
-                                </span>
-                            </td>
-                            <td>
-                                Invoice : <strong>#{{ $order->invoice }}</strong><br>
-                                {{ $order->created_at }}<br>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+        <body>
+                    <table width="800" border="0" cellpadding="10" cellspacing="0" align="center">
+                      <tr>
+                        <td align="left" width="70%">
+                            <h2>INVOICE</h2>
+                            <p>No: <strong>#{{ $order->invoice }}</strong></p>
+                            <p>Tanggal: {{ \Carbon\Carbon::parse($order->created_at)->format('d M Y') }}</p>
+                            <hr style="width: 114%; margin-left: 0;">
+                        </td>
+                        <td align="left" width="30%" style="padding-left: 1px;">
+                            <img src="{{ public_path('dist/img/logo.png') }}" alt="Logo" width="80"><br>
+                        </td>
+                    </tr>
 
-            <tr class="information">
-                <td colspan="2">
-                    <table>
-                        <tr>
-                            <td>
-                                <strong>PENERIMA</strong><br>
-                                {{ $order->customer_name }}<br>
-                                {{ $order->customer_phone }}<br>
-                                {{ $order->customer_address }}<br>
-                                {{ $order->district->name }}, {{ $citie->name }}<br>
-                                {{ $citie->postal_code }}
-                            </td>
-                            <td>
-                                <strong>PENGIRIM</strong><br>
-                                H. ILI MOTOR<br>
-                                085343966997<br>
-                                Jl Pasar Kemis<br>
-                                , Kab Tangerang<br>
-                                Banten
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
 
-            <tr class="heading">
-                <td>Produk</td>
-                <td>Subtotal</td>
-            </tr>
-
-            @foreach ($order_detail as $row)
-                <tr class="item">
-                    <td>
-                        {{ $row->product->name }}<br>
-                        <strong>Harga</strong>: Rp. {{ number_format($row->price) }} x {{ $row->qty }}
+                <tr>
+                    <td width="50%" valign="top">
+                        <strong>PENERIMA:</strong><br>
+                        {{ $order->customer_name }}<br>
+                        {{ $order->customer_phone }}<br>
+                        {{ $order->customer_address }}<br>
+                        {{ $order->district->name }}, {{ $citie->name }}<br>
+                        {{ $citie->postal_code }}
                     </td>
-                    <td>Rp. {{ number_format($row->price * $row->qty) }}</td>
+                    <td width="50%" style="padding-left: 1px" valign="top" >
+                        <strong>PENGIRIM:</strong><br>
+                        H. ILI MOTOR<br>
+                        085343966997<br>
+                        Jl Pasar Kemis<br>
+                        Kab Tangerang<br>
+                        Banten
+                    </td>
                 </tr>
-            @endforeach
 
-            {{-- <tr class="item">
-                <td><strong>Ongkir</strong></td>
-                <td>Rp. {{ number_format($order->shipping) }}</td>
-            </tr> --}}
-            <tr class="total">
-                <td></td>
-                <td>
-                    Total: Rp {{ number_format($row->price * $row->qty) }}
-                </td>
-            </tr>
+                <tr><td colspan="2"><br></td></tr>
+
+                <tr>
+                    <td colspan="2">
+                        <table width="65%" border="1" cellpadding="8" cellspacing="0">
+            <thead>
+                <tr>
+                    <th align="center">No</th>
+                    <th align="left">Nama Produk</th>
+                    <th align="right">Harga Satuan</th>
+                    <th align="center">Qty</th>
+                    <th align="right">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                @php $no = 1; $grandTotal = 0; @endphp
+                @foreach ($order_detail as $row)
+                    @php
+                        $subtotal = $row->price * $row->qty;
+                        $grandTotal += $subtotal;
+                    @endphp
+                    <tr>
+                        <td align="center">{{ $no++ }}</td>
+                        <td>{{ $row->product->name }}</td>
+                        <td align="right">Rp {{ number_format($row->price) }}</td>
+                        <td align="center">{{ $row->qty }}</td>
+                        <td align="right">Rp {{ number_format($subtotal) }}</td>
+                    </tr>
+                @endforeach
+                <tr>
+                    <td colspan="4" align="right"><strong>Total:</strong></td>
+                    <td align="right"><strong>Rp {{ number_format($grandTotal) }}</strong></td>
+                </tr>
+            </tbody>
         </table>
-    </div>
+
+            </td>
+        </tr>
+
+        <!-- FOOTER -->
+        <tr>
+            <td colspan="2" align="center">
+                <br><br>
+                <p>Terima kasih telah berbelanja di <strong>H. ILI MOTOR</strong>.</p>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
