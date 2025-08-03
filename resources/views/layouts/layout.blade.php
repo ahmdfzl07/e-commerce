@@ -161,8 +161,7 @@
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script> All rights reserved | H. ILI MOTOR <i class="fa fa-heart"
-                            aria-hidden="true"></i> <a href="#" target="_blank"></a>
+                        </script> All rights reserved | H. ILI MOTOR  <a href="#" target="_blank"></a>
                     </p>
                 </div>
             </div>

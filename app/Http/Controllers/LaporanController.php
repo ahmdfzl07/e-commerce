@@ -12,34 +12,51 @@ class LaporanController extends Controller
 {
  public function index()
 {
-    $orders = Order::with(['customer.district.citie.province', 'payment'])
+    $ordersQuery = Order::with(['customer.district.citie.province', 'payment'])
         ->orderBy('created_at', 'DESC');
 
     if (request()->has('q') && request()->q != '') {
         $keyword = request()->q;
-        $orders = $orders->where(function ($query) use ($keyword) {
+        $ordersQuery = $ordersQuery->where(function ($query) use ($keyword) {
             $query->where('customer_name', 'LIKE', '%' . $keyword . '%')
                   ->orWhere('invoice', 'LIKE', '%' . $keyword . '%')
                   ->orWhere('customer_address', 'LIKE', '%' . $keyword . '%');
         });
     }
 
-    // Filter status
     if (request()->has('status') && request()->status !== '') {
-        $orders = $orders->where('status', request()->status);
+        $ordersQuery = $ordersQuery->where('status', request()->status);
     }
 
-    // Filter berdasarkan bulan
     if (request()->filled('bulan')) {
-        $bulan = request()->bulan; // format: yyyy-mm
-        $orders = $orders->whereYear('created_at', substr($bulan, 0, 4))
-                         ->whereMonth('created_at', substr($bulan, 5, 2));
+        $bulan = request()->bulan;
+        $ordersQuery = $ordersQuery->whereYear('created_at', substr($bulan, 0, 4))
+                                   ->whereMonth('created_at', substr($bulan, 5, 2));
     }
 
-    $orders = $orders->paginate(10);
+    $orders = $ordersQuery->paginate(10);
 
-    return view('orders.laporan', compact('orders'));
+    $total = Order::when(request()->filled('q'), function ($query) {
+            $keyword = request()->q;
+            $query->where(function ($q) use ($keyword) {
+                $q->where('customer_name', 'LIKE', '%' . $keyword . '%')
+                  ->orWhere('invoice', 'LIKE', '%' . $keyword . '%')
+                  ->orWhere('customer_address', 'LIKE', '%' . $keyword . '%');
+            });
+        })
+        ->when(request()->filled('status'), function ($query) {
+            $query->where('status', request()->status);
+        })
+        ->when(request()->filled('bulan'), function ($query) {
+            $bulan = request()->bulan;
+            $query->whereYear('created_at', substr($bulan, 0, 4))
+                  ->whereMonth('created_at', substr($bulan, 5, 2));
+        })
+        ->sum('subtotal');
+
+    return view('orders.laporan', compact('orders', 'total'));
 }
+
 
 
     // Update status pesanan

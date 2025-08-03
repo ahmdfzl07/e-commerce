@@ -15,16 +15,9 @@
 
         <div class="card">
             <div class="card-header">
-                <form method="GET" class="form-inline">
-
-                    {{-- <div class="form-group mr-2">
-                        <input type="text" name="date" class="form-control" placeholder="Tanggal (yyyy-mm-dd - yyyy-mm-dd)" value="{{ request('date') }}">
-                    </div> --}}
-                    <form id="laporan" method="GET" action="{{ route('laporan.index') }}">
+                <form method="GET" action="{{ route('laporan.index') }}">
                     <input type="month" name="bulan" value="{{ request('bulan') }}">
                     <button type="submit" class="btn btn-primary">Cari</button>
-                </form>
-
                 </form>
             </div>
 
@@ -55,6 +48,12 @@
                             </tr>
                         @endforelse
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="2" class="text-right">Total</th>
+                            <th colspan="2">Rp {{ number_format($total, 0, ',', '.') }}</th>
+                        </tr>
+                    </tfoot>
                 </table>
 
                 <div class="mt-3">
