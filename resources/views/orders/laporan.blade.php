@@ -15,12 +15,16 @@
 
         <div class="card">
             <div class="card-header">
-                <form method="GET" action="{{ route('laporan.index') }}">
-                    <input type="month" name="bulan" value="{{ request('bulan') }}">
-                    <button type="submit" class="btn btn-primary">Cari</button>
+                <form method="GET" action="{{ route('laporan.index') }}" class="form-inline d-inline-block">
+                    <input type="month" name="bulan" value="{{ request('bulan') }}" class="form-control mr-2">
+                    <button type="submit" class="btn btn-primary mr-2">Cari</button>
+                </form>
+
+                <form method="GET" action="{{ route('laporan.export') }}" class="d-inline-block">
+                    <input type="hidden" name="bulan" value="{{ request('bulan') }}">
+                    <button type="submit" class="btn btn-success">Export to Excel</button>
                 </form>
             </div>
-
             <div class="card-body table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>

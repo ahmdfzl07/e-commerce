@@ -74,6 +74,7 @@ Route::group(['middleware' => ['auth']], function () {
     /* Order */
     Route::get('order/index', [OrderController::class, 'index'])->name('order.index');
     Route::get('laporan/index', [LaporanController::class, 'index'])->name('laporan.index');
+    Route::get('/laporan/export', [OrderController::class, 'export'])->name('laporan.export');
     Route::post('order/update/{id}', [OrderController::class, 'update'])->name('order.update');
     Route::delete('order/destroy/{id}', [OrderController::class, 'destroy'])->name('order.destroy');
     Route::get('order', [OrderController::class, 'viewOrder'])->name('report.order');
@@ -126,7 +127,7 @@ Route::group(['middelware' => 'costumer'], function () {
 
     // Route::get('/costumer/create', [CartController::class, 'coba'])->name('home.coba');
 
-    // fullcustom 
+    // fullcustom
     Route::get('/costumer/full_custom', [FullCustomController::class, 'list'])->name('home.full_custom');
     Route::post('/checkoutProsesCustom', [FullCustomController::class, 'checkoutProsesCustom'])->name('home.checkoutProsesCustom');
     Route::get('/costumer/full_custom/detail/{id}', [FullCustomController::class, 'show'])->name('full_custom.show');

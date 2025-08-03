@@ -16,6 +16,8 @@ use Kavist\RajaOngkir\Facades\RajaOngkir;
 use Illuminate\Support\Str;
 use App\Models\Citie;
 use App\Models\Payment;
+use App\Exports\OrdersExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -118,4 +120,11 @@ class OrderController extends Controller
         $pdf = PDF::loadView('orders.order_pdf', compact('orders', 'date'));
         return $pdf->stream();
     }
+
+    public function export()
+    {
+    $bulan = request('bulan');
+    return Excel::download(new OrdersExport($bulan), 'laporan_pesanan.xlsx');
+    }
+
 }
