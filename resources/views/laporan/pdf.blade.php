@@ -62,6 +62,18 @@
             background-color: #eee;
         }
 
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background-image: url('{{ public_path("dist/img/bg.jpeg") }}');
+            background-size: cover;
+            background-position: center;
+            opacity: 1;
+        }
         body { font-family: sans-serif; font-size: 12px; }
         table { width: 100%; border-collapse: collapse; }
         th, td { border: 1px solid #000; padding: 6px; text-align: left; }
@@ -70,7 +82,9 @@
 </head>
 <body>
     {{-- Watermark --}}
-    <div class="watermark">MARTIN KONTOL</div>
+    <div class="bg-image"></div>
+
+    {{-- <div class="watermark">MARTIN KONTOL</div> --}}
 
       <table width="100%" style="margin-bottom: 20px;">
         <tr>
