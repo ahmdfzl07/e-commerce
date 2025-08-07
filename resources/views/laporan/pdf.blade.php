@@ -61,48 +61,59 @@
             font-weight: bold;
             background-color: #eee;
         }
+
+        body { font-family: sans-serif; font-size: 12px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #000; padding: 6px; text-align: left; }
+        th { background-color: #f2f2f2; }
     </style>
 </head>
 <body>
     {{-- Watermark --}}
     <div class="watermark">MARTIN KONTOL</div>
 
-    <h2>Laporan Penjualan</h2>
-    <h4>Bulan: {{ $bulan }}</h4>
-    <br>
+      <table width="100%" style="margin-bottom: 20px;">
+        <tr>
+            <td width="70%">
+                <h2>LAPORAN PESANAN</h2>
+                <p>Bulan: <strong>{{ \Carbon\Carbon::parse($bulan)->format('F Y') }}</strong></p>
+                <p>Tanggal Cetak: {{ now()->format('d M Y') }}</p>
+                <hr>
+            </td>
+            <td width="30%" align="right">
+                <img src="{{ public_path('dist/img/logo.png') }}" width="80" alt="Logo H. ILI MOTOR">
+            </td>
+        </tr>
+    </table>
 
+    {{-- TABEL PESANAN --}}
     <table>
         <thead>
             <tr>
                 <th>No</th>
-                <th>Tanggal</th>
                 <th>Invoice</th>
                 <th>Customer</th>
-                <th>Alamat</th>
-                <th>Total</th>
-                <th>Status</th>
+                <th>Subtotal</th>
+                <th>Tanggal</th>
             </tr>
         </thead>
         <tbody>
-            @php $total = 0; @endphp
-            @foreach ($orders as $order)
-                @php $total += $order->total; @endphp
+            @foreach ($orders as $index => $order)
                 <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td>{{ \Carbon\Carbon::parse($order->created_at)->format('d-m-Y') }}</td>
+                    <td>{{ $index + 1 }}</td>
                     <td>{{ $order->invoice }}</td>
-                    <td>{{ $order->customer->name }}</td>
-                    <td>{{ $order->customer->address }}</td>
-                    <td class="text-right">Rp {{ number_format($order->total, 0, ',', '.') }}</td>
-                    <td class="text-center">{{ $order->status }}</td>
+                    <td>{{ $order->customer_name }}<br><small>{{ $order->customer_address }}</small></td>
+                    <td>Rp {{ number_format($order->subtotal, 0, ',', '.') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($order->created_at)->format('d M Y') }}</td>
                 </tr>
             @endforeach
-            <tr class="total">
-                <td colspan="5" class="text-right">Total Keseluruhan</td>
-                <td class="text-right">Rp {{ number_format($total, 0, ',', '.') }}</td>
-                <td></td>
-            </tr>
         </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3" style="text-align:right">Total</th>
+                <th colspan="2">Rp {{ number_format($total, 0, ',', '.') }}</th>
+            </tr>
+        </tfoot>
     </table>
 </body>
 </html>
