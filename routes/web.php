@@ -124,6 +124,7 @@ Route::group(['middelware' => 'costumer'], function () {
     Route::post('/costumer/payment/{invoice}', [EcommerceOrderController::class, 'payment'])->name('home.payment');
     Route::post('/costummer/order/update/{id}', [EcommerceOrderController::class, 'update'])->name('home.order.update');
     Route::get('/costumer/pdf/{id}', [EcommerceOrderController::class, 'generatepdf'])->name('home.pdf');
+    Route::get('/laporan/export-pdf', [LaporanController::class, 'exportPDF'])->name('laporan.exportPDF');
 
     // Route::get('/costumer/create', [CartController::class, 'coba'])->name('home.coba');
 

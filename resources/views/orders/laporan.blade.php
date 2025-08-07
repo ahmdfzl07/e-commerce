@@ -25,12 +25,13 @@
                     <button type="submit" class="btn btn-success">Export to Excel</button>
                 </form> --}}
             </div>
-            <div class="card-header d-flex justify-content-end">
-    <form method="GET" action="{{ route('laporan.export') }}">
+          <div class="card-header d-flex justify-content-end">
+    <form method="GET" action="{{ route('laporan.exportPDF') }}">
         <input type="hidden" name="bulan" value="{{ request('bulan') }}">
-        <button type="submit" class="btn btn-success">Export to Excel</button>
+        <button type="submit" class="btn btn-danger">Export to PDF</button>
     </form>
 </div>
+
 
             <div class="card-body table-responsive">
                 <table class="table table-bordered table-hover" style="font-size: 15px;">

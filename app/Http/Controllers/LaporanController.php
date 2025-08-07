@@ -151,4 +151,53 @@ class LaporanController extends Controller
             'data' => $orders
         ]);
     }
+
+  public function exportPDF(Request $request)
+{
+    $ordersQuery = Order::with(['customer.district.citie.province', 'payment'])
+        ->orderBy('created_at', 'DESC');
+
+    if ($request->filled('q')) {
+        $keyword = $request->q;
+        $ordersQuery->where(function ($query) use ($keyword) {
+            $query->where('customer_name', 'LIKE', '%' . $keyword . '%')
+                  ->orWhere('invoice', 'LIKE', '%' . $keyword . '%')
+                  ->orWhere('customer_address', 'LIKE', '%' . $keyword . '%');
+        });
+    }
+
+    if ($request->filled('status')) {
+        $ordersQuery->where('status', $request->status);
+    }
+
+    $bulan = $request->bulan;
+
+    if ($bulan) {
+        $ordersQuery->whereYear('created_at', substr($bulan, 0, 4))
+                    ->whereMonth('created_at', substr($bulan, 5, 2));
+    }
+
+    $orders = $ordersQuery->get();
+
+    $total = Order::when($request->filled('q'), function ($query) use ($request) {
+                $keyword = $request->q;
+                $query->where(function ($q) use ($keyword) {
+                    $q->where('customer_name', 'LIKE', '%' . $keyword . '%')
+                      ->orWhere('invoice', 'LIKE', '%' . $keyword . '%')
+                      ->orWhere('customer_address', 'LIKE', '%' . $keyword . '%');
+                });
+            })
+            ->when($request->filled('status'), function ($query) use ($request) {
+                $query->where('status', $request->status);
+            })
+            ->when($bulan, function ($query) use ($bulan) {
+                $query->whereYear('created_at', substr($bulan, 0, 4))
+                      ->whereMonth('created_at', substr($bulan, 5, 2));
+            })
+            ->sum('subtotal');
+
+    $pdf = Pdf::loadView('laporan.pdf', compact('orders', 'total', 'bulan'))->setPaper('a4', 'portrait');
+
+    return $pdf->download('laporan-pesanan.pdf');
+}
 }
