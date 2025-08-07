@@ -10,8 +10,23 @@
     </style>
 </head>
 <body>
-    <h2>Laporan Pesanan - {{ \Carbon\Carbon::parse($bulan)->format('F Y') }}</h2>
 
+    {{-- HEADER --}}
+    <table width="100%" style="margin-bottom: 20px;">
+        <tr>
+            <td width="70%">
+                <h2>LAPORAN PESANAN</h2>
+                <p>Bulan: <strong>{{ \Carbon\Carbon::parse($bulan)->format('F Y') }}</strong></p>
+                <p>Tanggal Cetak: {{ now()->format('d M Y') }}</p>
+                <hr>
+            </td>
+            <td width="30%" align="right">
+                <img src="{{ public_path('dist/img/logo.png') }}" width="100" alt="Logo H. ILI MOTOR">
+            </td>
+        </tr>
+    </table>
+
+    {{-- TABEL PESANAN --}}
     <table>
         <thead>
             <tr>
@@ -40,5 +55,11 @@
             </tr>
         </tfoot>
     </table>
+
+    {{-- FOOTER --}}
+    <div style="margin-top: 30px; text-align: center;">
+        <p>Terima kasih telah menggunakan layanan <strong>H. ILI MOTOR</strong>.</p>
+    </div>
+
 </body>
 </html>
