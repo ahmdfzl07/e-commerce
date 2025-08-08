@@ -62,7 +62,7 @@
             background-color: #eee;
         }
 
-        .bg-image {
+        /* .bg-image {
             position: fixed;
             top: 0;
             left: 0;
@@ -73,7 +73,7 @@
             background-size: cover;
             background-position: center;
             opacity: 1;
-        }
+        } */
         body { font-family: sans-serif; font-size: 12px; }
         table { width: 100%; border-collapse: collapse; }
         th, td { border: 1px solid #000; padding: 6px; text-align: left; }
@@ -82,7 +82,7 @@
 </head>
 <body>
     {{-- Watermark --}}
-    <div class="bg-image"></div>
+    {{-- <div class="bg-image"></div> --}}
 
     {{-- <div class="watermark">MARTIN KONTOL</div> --}}
 
