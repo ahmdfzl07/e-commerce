@@ -284,7 +284,7 @@
 
     <div class="card shadow-lg border-0 rounded-3">
         <div class="card-header text-center bg-dark text-white">
-            <h3 style="font-family: 'Orbitron', sans-serif;">Login Toko Sparepart</h3>
+            <h3 style="font-family: 'Orbitron', sans-serif;">Login Admin</h3>
             <p class="mb-0" style="font-size: 0.9rem;">Silakan masuk untuk melanjutkan</p>
         </div>
 
@@ -337,7 +337,7 @@
         </div>
 
         <div class="card-footer text-muted text-center small">
-            © {{ date('Y') }} H. Ili Motor – Sparepart & Servis Motor
+            © {{ date('Y') }}SINAR JAYA FURNITURE
         </div>
     </div>
 </div>

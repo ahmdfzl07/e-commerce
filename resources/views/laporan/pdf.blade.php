@@ -95,7 +95,7 @@
                 <hr>
             </td>
             <td width="30%" align="right">
-                <img src="{{ public_path('dist/img/logo.png') }}" width="80" alt="Logo H. ILI MOTOR">
+                <img src="{{ public_path('dist/img/logo.png') }}" width="80" alt="LogoSINAR JAYA FURNITURE">
             </td>
         </tr>
     </table>

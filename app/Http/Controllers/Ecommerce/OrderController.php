@@ -193,7 +193,7 @@ public function payment(Request $request)
             'status' => $request['status']
             ]);
 
-        session()->flash('success', "Pesanan anda sudah selesai. Terimakasih Sudah berbelanja di H. ILI MOTOR ");
+        session()->flash('success', "Pesanan anda sudah selesai. Terimakasih Sudah berbelanja diSINAR JAYA FURNITURE ");
         return redirect(route('home.orderdetail'));
     }
 }

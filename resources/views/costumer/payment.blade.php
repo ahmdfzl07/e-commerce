@@ -40,7 +40,7 @@
         <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 20px;">
           <img src="/dist/img/bni.jpeg" alt="BCA" style="height: 40px; margin-bottom: 10px;">
           <h5 style="margin: 10px 0;">7112113277</h5>
-          <p style="margin: 0;">a.n. Martin Abraham</p>
+          <p style="margin: 0;">a.n. Reza Haidar</p>
         </div>
       </div>
       <!-- Bank BNI -->
@@ -48,7 +48,7 @@
         <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 20px;">
           <img src="/dist/img/bni.jpeg" alt="BNI" style="height: 40px; margin-bottom: 10px;">
           <h5 style="margin: 10px 0;">7112113277</h5>
-          <p style="margin: 0;">a.n. Martin Abraham</p>
+          <p style="margin: 0;">a.n. Reza Haidar</p>
         </div>
       </div>
       <!-- Bank BRI -->
@@ -56,7 +56,7 @@
         <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 20px;">
           <img src="/dist/img/bri.jpeg" alt="BRI" style="height: 40px; margin-bottom: 10px;">
           <h5 style="margin: 10px 0;">7112113277</h5>
-          <p style="margin: 0;">a.n. Martin Abraham</p>
+          <p style="margin: 0;">a.n. Reza Haidar</p>
         </div>
       </div>
       <!-- Bank Mandiri -->
@@ -64,7 +64,7 @@
         <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 20px;">
           <img src="/dist/img/mandiri.jpeg" alt="Mandiri" style="height: 40px; margin-bottom: 10px;">
           <h5 style="margin: 10px 0;">7112113277</h5>
-          <p style="margin: 0;">a.n. Martin Abraham</p>
+          <p style="margin: 0;">a.n. Reza Haidar</p>
         </div>
       </div>
     </div>

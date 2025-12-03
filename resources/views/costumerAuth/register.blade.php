@@ -31,7 +31,7 @@
         <div class="row justify-content-center shadow-lg" style="background: #fff; border-radius: 12px; overflow: hidden;">
             <div class="col-lg-5 d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #ffffff, #34495e); color: #fff; padding: 40px;">
                 <div class="text-center">
-                    <img src="{{ asset('dist/img/mesin.png') }}" alt="Motor Icon" style="width: 100px; margin-bottom: 20px;">
+                    <img src="{{ asset('dist/img/logo.png') }}" alt="Motor Icon" style="width: 100px; margin-bottom: 20px;">
                     <h4>Sudah punya akun?</h4>
                     <p>Masuk dan kelola pesanan Anda dengan mudah.</p>
                     <a href="{{ route('costumer.login') }}" class="btn btn-light mt-3" style="color: #34495e;">Login Sekarang</a>

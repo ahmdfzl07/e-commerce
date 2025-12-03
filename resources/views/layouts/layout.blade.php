@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>H. ILI MOTOR - @yield('title')</title>
+    <title>SINAR JAYA FURNITURE - @yield('title')</title>
     {{-- <link rel="icon" href="img/Fevicon.png" type="image/png"> --}}
     <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/css/all.min.css') }}">
@@ -138,9 +138,9 @@
                         <div class="single-footer-widget tp_widgets">
                             <h4 class="footer_title">Kategori</h4>
                             <ul class="list">
-                                <li><a href="#">Sparepar Mesin</a></li>
-                                <li><a href="#">Kaki-Kaki</a></li>
-                                <li><a href="#">Accesoris</a></li>
+                                <li><a href="#">Meja</a></li>
+                                <li><a href="#">Kursi</a></li>
+                                <li><a href="#">Kasur</a></li>
                             </ul>
                         </div>
                     </div>
@@ -161,7 +161,7 @@
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script> All rights reserved | H. ILI MOTOR  <a href="#" target="_blank"></a>
+                        </script> All rights reserved |SINAR JAYA FURNITURE  <a href="#" target="_blank"></a>
                     </p>
                 </div>
             </div>

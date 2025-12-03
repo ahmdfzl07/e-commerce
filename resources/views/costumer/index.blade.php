@@ -12,13 +12,13 @@
   <main class="site-main">
 
     <!-- =============== Hero Banner =============== -->
-    <section style="background: linear-gradient(135deg, #838180, #feb47b); padding: 80px 0;">
+    <section style="background: linear-gradient(135deg, #838180, #847bfe); padding: 80px 0;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 text-white">
                     <h4 style="font-size: 22px; font-weight: 400;">Belanja itu menyenangkan</h4>
                     <h1 style="font-size: 48px; font-weight: bold; line-height: 1.2;">Jelajahi Produk<br>Premium Kami</h1>
-                    <p style="font-size: 16px; margin: 20px 0;">Kami menyediakan berbagai macam sparepart berkualitas tinggi untuk kendaraan Anda. Dengan stok lengkap dan harga bersaing.</p>
+                    <p style="font-size: 16px; margin: 20px 0;">Kami menyediakan berbagai macam FURNITURE  berkualitas tinggi untuk  Anda. Dengan stok lengkap dan harga bersaing.</p>
                     <a href="{{ route('home.product') }}" style="background: #fff; color: #ff6b4a; padding: 12px 28px; border-radius: 30px; font-weight: bold; text-decoration: none;">Belanja Sekarang</a>
                 </div>
                 {{-- <div class="col-md-6 text-center">

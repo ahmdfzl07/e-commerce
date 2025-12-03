@@ -47,7 +47,7 @@
         <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 20px;">
           <img src="/dist/img/bni.jpeg" alt="BCA" style="height: 40px; margin-bottom: 10px;">
           <h5 style="margin: 10px 0;">7112113277</h5>
-          <p style="margin: 0;">a.n. Martin Abraham</p>
+          <p style="margin: 0;">a.n. Reza Haidar</p>
         </div>
       </div>
       <!-- Bank BNI -->
@@ -55,7 +55,7 @@
         <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 20px;">
           <img src="/dist/img/bni.jpeg" alt="BNI" style="height: 40px; margin-bottom: 10px;">
           <h5 style="margin: 10px 0;">7112113277</h5>
-          <p style="margin: 0;">a.n. Martin Abraham</p>
+          <p style="margin: 0;">a.n. Reza Haidar</p>
         </div>
       </div>
       <!-- Bank BRI -->
@@ -63,7 +63,7 @@
         <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 20px;">
           <img src="/dist/img/bri.jpeg" alt="BRI" style="height: 40px; margin-bottom: 10px;">
           <h5 style="margin: 10px 0;">7112113277</h5>
-          <p style="margin: 0;">a.n. Martin Abraham</p>
+          <p style="margin: 0;">a.n. Reza Haidar</p>
         </div>
       </div>
       <!-- Bank Mandiri -->
@@ -71,7 +71,7 @@
         <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 20px;">
           <img src="/dist/img/mandiri.jpeg" alt="Mandiri" style="height: 40px; margin-bottom: 10px;">
           <h5 style="margin: 10px 0;">7112113277</h5>
-          <p style="margin: 0;">a.n. Martin Abraham</p>
+          <p style="margin: 0;">a.n. Reza Haidar</p>
         </div>
       </div>
     </div>
@@ -123,7 +123,7 @@
         <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
           <h4>Shipping Alamat</h4>
           <table style="width: 100%; margin-top: 15px;">
-            <tr><td>Street</td><td>: Tigaraksa</td></tr>
+            <tr><td>Street</td><td>: Curug</td></tr>
             <tr><td>City</td><td>: Tangerang</td></tr>
             <tr><td>Negara</td><td>: Indonesia</td></tr>
             <tr><td>Kode Pos</td><td>: 1205</td></tr>

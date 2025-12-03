@@ -30,7 +30,7 @@
                     </td>
                     <td width="50%" style="padding-left: 1px" valign="top" >
                         <strong>PENGIRIM:</strong><br>
-                        H. ILI MOTOR<br>
+                       SINAR JAYA FURNITURE<br>
                         085343966997<br>
                         Jl Pasar Kemis<br>
                         Kab Tangerang<br>
@@ -81,7 +81,7 @@
         <tr>
             <td colspan="2" align="center">
                 <br><br>
-                <p>Terima kasih telah berbelanja di <strong>H. ILI MOTOR</strong>.</p>
+                <p>Terima kasih telah berbelanja di <strong>SINAR JAYA FURNITURE</strong>.</p>
             </td>
         </tr>
     </table>

@@ -37,9 +37,9 @@
 
             <!-- Logo + Daftar -->
             <div class="col-lg-6 d-none d-lg-block text-center" style="border-right: 1px solid #ccc;">
-                <img src="{{ asset('dist/img/mesin2.jpeg') }}" alt="Logo" style="max-width: 180px; margin-bottom: 20px;">
+                <img src="{{ asset('dist/img/logo1.png') }}" alt="Logo" style="max-width: 180px; margin-bottom: 20px;">
                 <h4 style="color: #2c3e50;">Baru di situs kami?</h4>
-                <p style="color: #7f8c8d;">Daftar sekarang dan nikmati berbagai fitur menarik untuk kebutuhan sparepart motor Anda.</p>
+                <p style="color: #7f8c8d;">Daftar sekarang dan nikmati berbagai fitur menarik untuk kebutuhan furniture Anda.</p>
                 <a href="{{ route('costumer.register') }}" style="display: inline-block; margin-top: 15px; padding: 10px 25px; background-color: #e67e22; color: white; border-radius: 25px; text-decoration: none;">
                     Buat Akun
                 </a>
